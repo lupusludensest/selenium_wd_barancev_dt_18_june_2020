@@ -25,11 +25,11 @@ sleep(1)
 
 #Click on button "Login"
 driver.find_element(By.NAME, 'login').click()
-sleep(2)
+sleep(4)
 
 # Verify if "Trying to access array offset on value of type null in" is on page
-assert 'Trying to access array offset on value of type null in' in driver.find_element(By.XPATH, "//th[@colspan='4']").text
-print('Text: ', driver.find_element(By.XPATH, "//th[@colspan='4']").text, ';')
+assert 'Warning:' in driver.find_element(By.ID, "content").text
+print('Text: ', driver.find_element(By.ID, "content").text, ';')
 driver.quit()
 
 
