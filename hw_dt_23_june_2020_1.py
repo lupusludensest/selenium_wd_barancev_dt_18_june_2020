@@ -9,7 +9,7 @@ def driver(request):
     request.addfinalizer(wd.quit)
     return wd
 
-def hw_dt_23_june_2020(driver):
+def test_example(driver):
     driver.get("https://www.google.com/")
     driver.maximize_window()
     driver.find_element_by_name("q").send_keys("webdriver")
