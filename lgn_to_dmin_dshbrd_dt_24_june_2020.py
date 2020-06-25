@@ -27,7 +27,7 @@ sleep(1)
 driver.find_element(By.NAME, 'login').click()
 sleep(4)
 
-# Verify if "Trying to access array offset on value of type null in" is on page
+# Verify if "Warning" is on page
 assert 'Warning:' in driver.find_element(By.ID, "content").text
 print('Text: ', (driver.find_element(By.ID, "content").text)[:8], ';')
 driver.quit()
