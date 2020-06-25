@@ -12,6 +12,7 @@ def driver(request):
 def test_example(driver):
     driver.get("https://www.google.com/")
     driver.maximize_window()
+    driver.find_element_by_name("q").clear()
     driver.find_element_by_name("q").send_keys("webdriver")
     driver.find_element_by_name("btnK").click()
     WebDriverWait(driver, 10).until(EC.title_is("webdriver - Поиск в Google"))
