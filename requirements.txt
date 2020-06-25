@@ -1,4 +1,5 @@
 behave
-selenium
+selenium~=3.141.0
 allure-pytest
-pytest
+pytest~=5.4.3
+pip
