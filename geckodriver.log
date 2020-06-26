@@ -122,3 +122,15 @@ JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't fin
 
 ###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
 
+1593170403497	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofileEzyXpD"
+JavaScript error: resource://gre/modules/XULStore.jsm, line 66: Error: Can't find profile directory.
+1593170405468	Marionette	INFO	Listening on port 50094
+1593170405514	Marionette	WARN	TLS certificate errors will be ignored for this session
+1593170409891	Marionette	INFO	Stopped listening on port 50094
+JavaScript error: https://www.google.com/xjs/_/js/k=xjs.s.en_US.M2YFp7ys7QI.O/ck=xjs.s.tYbNuoPDI_U.L.F4.O/am=AAAAEAAAAFgC5m4AOP9BALgLShwAAACAAC0JNhZIISQkBCAAADALEwAACA/d=1/exm=Fkg7bd,HcFEGb,IvlUe,MC8mtf,OF7gzc,RMhBfe,T4BAC,TJw5qb,Y33vzc,ZyRBae,cdos,cr,csi,d,hsm,iDPoPb,jsa,mvYTse,tg8oTe,uz938c,vWNDde,ws9Tlc,yQ43ff/ed=1/dg=2/ct=zgms/rs=ACT90oGsjcOCJ8rTpXWei32nonPy63m3FA/m=F8FRnd,MB3mMb,MkHyGd,NBZ7u,OG6ZHd,RqxLvf,T7XTS,TxZWcc,URQPYc,V9u9Nb,XMgU6d,XjCeUc,aCZVp,aa,aam1T,abd,async,bgd,dvl,eN4qad,eT9j9d,foot,iD8Yk,kyn,lu,m,m6a0l,mUpTid,mpck,mu,o02Jie,pB6Zqd,qik19b,rHjpXd,runuse,sb_wiz,sf,tl,uiNkee,vs,wkrYee,xz7cCd,zbML3c?xjs=s1, line 1379: NS_ERROR_NOT_INITIALIZED: 
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
