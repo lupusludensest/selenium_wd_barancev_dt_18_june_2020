@@ -8,12 +8,14 @@ from time import sleep
 def driver(request):
     wd = webdriver.Chrome()
     # wd = webdriver.Firefox()
-    # wd = webdriver.Ie()
+    # wd = webdriver.Ie(capabilities={"unexpectedAlertBehaviour": "dismiss"})
+    # print(wd.capabilities)
     # wd = webdriver.Edge()
     request.addfinalizer(wd.quit)
     return wd
 
 def test_example(driver):
+    # pass
     driver.get("https://www.google.com/")
     driver.maximize_window()
     driver.find_element_by_name("q").send_keys("webdriver")
