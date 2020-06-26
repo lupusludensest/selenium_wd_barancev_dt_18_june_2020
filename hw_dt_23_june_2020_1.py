@@ -7,11 +7,15 @@ from time import sleep
 @pytest.fixture
 def driver(request):
     wd = webdriver.Chrome()
+    # wd = webdriver.Firefox()
+    # wd = webdriver.Ie()
+    # wd = webdriver.Edge()
     request.addfinalizer(wd.quit)
     return wd
 
 def test_example(driver):
     driver.get("https://www.google.com/")
+    driver.maximize_window()
     driver.find_element_by_name("q").send_keys("webdriver")
     sleep(2)
     driver.find_element_by_name("btnK").click()
