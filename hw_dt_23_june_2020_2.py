@@ -1,6 +1,8 @@
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # init driver
 driver = webdriver.Chrome()
@@ -23,8 +25,9 @@ sleep(2)
 
 # Verify if "WebDriver - World Wide Web Consortium" is on page
 assert 'WebDriver - World Wide Web Consortium' in driver.find_element(By.XPATH, "//a[@href='https://www.w3.org/TR/webdriver/']").text
-print('Text: ', (driver.find_element(By.XPATH, "//a[@href='https://www.w3.org/TR/webdriver/']").text)[:40], ';')
+print('Text: ', (driver.find_element(By.XPATH, "//a[@href='https://www.w3.org/TR/webdriver/']").text)[:37], ';')
 driver.quit()
+
 
 
 
