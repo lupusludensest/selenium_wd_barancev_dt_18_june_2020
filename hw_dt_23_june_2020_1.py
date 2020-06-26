@@ -6,11 +6,12 @@ from time import sleep
 
 @pytest.fixture
 def driver(request):
-    wd = webdriver.Chrome()
+    # wd = webdriver.Chrome()
     # wd = webdriver.Firefox()
-    # wd = webdriver.Ie(capabilities={"unexpectedAlertBehaviour": "dismiss"})
-    # print(wd.capabilities)
-    # wd = webdriver.Edge()
+    # wd = webdriver.Edge(executable_path="C:\Webdrivers\msedgedriver")
+    # wd = webdriver.Ie()
+    wd = webdriver.Ie(capabilities={"unexpectedAlertBehaviour": "dismiss"})
+    print(wd.capabilities)
     request.addfinalizer(wd.quit)
     return wd
 
