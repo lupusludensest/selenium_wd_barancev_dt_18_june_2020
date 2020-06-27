@@ -25,8 +25,10 @@ def test_example(driver):
     # pass
     driver.get("https://www.google.com/")
     driver.maximize_window()
+    sleep(4)
     driver.find_element_by_name("q").clear()
+    sleep(4)
     driver.find_element_by_name("q").send_keys("webdriver")
-    sleep(2)
+    sleep(4)
     driver.find_element_by_name("btnK").click()
     WebDriverWait(driver, 10).until(EC.title_is("webdriver - Google Search"))
