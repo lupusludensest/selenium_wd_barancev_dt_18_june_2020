@@ -17,6 +17,7 @@ def driver(request):
     # wd = webdriver.Ie()
     # wd = webdriver.Ie(capabilities={"unexpectedAlertBehaviour": "dismiss"})
     # print(wd.capabilities)
+    # wd = webdriver.Ie(capabilities={"requireWindowFocus": True})
     request.addfinalizer(wd.quit)
     return wd
 

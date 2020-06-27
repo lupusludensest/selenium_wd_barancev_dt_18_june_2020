@@ -316,3 +316,18 @@ console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Err
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1593227008985	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "start-maximized" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofile5v3hik"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1593227011455	Marionette	INFO	Listening on port 49805
+1593227011600	Marionette	WARN	TLS certificate errors will be ignored for this session
+1593227015646	Marionette	INFO	Stopped listening on port 49805
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x6B0029,name=PNecko::Msg_RemoveRequestContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+[2020-06-27T03:03:36Z ERROR xulstore::persist] removeDocument error: unavailable
