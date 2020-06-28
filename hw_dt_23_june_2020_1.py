@@ -7,7 +7,7 @@ from time import sleep
 @pytest.fixture
 def driver(request):
     # wd = webdriver.Chrome()
-    wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["--start-fullscreen"]}})
+    # wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["--start-fullscreen"]}})
     # wd = webdriver.Firefox()
     # options = webdriver.FirefoxOptions()
     # options.binary_location = "C:\\Program Files\\Firefox Nightly\\firefox.exe"
@@ -17,7 +17,8 @@ def driver(request):
     # wd = webdriver.Ie()
     # wd = webdriver.Ie(capabilities={"unexpectedAlertBehaviour": "dismiss"})
     # wd = webdriver.Ie(capabilities={"requireWindowFocus": True})
-    # print(f'\nCAPABILITIES: {wd.capabilities}\nEND CAPABILITIES')
+    wd = webdriver.Ie(capabilities={"IntroduceInstabilityByIgnoringProtectedModeSettings": True, "requireWindowFocus": True})
+    print(f'\nCAPABILITIES: {wd.capabilities}\nEND CAPABILITIES')
     sleep(4)
     request.addfinalizer(wd.quit)
     return wd

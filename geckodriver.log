@@ -396,3 +396,46 @@ console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Err
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
 [2020-06-28T02:09:43Z ERROR xulstore::persist] removeDocument error: unavailable
+1593312107699	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "start-maximized" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofile1zgs7j"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1593312109963	Marionette	INFO	Listening on port 50735
+1593312110361	Marionette	WARN	TLS certificate errors will be ignored for this session
+1593312140420	Marionette	INFO	Stopped listening on port 50735
+JavaScript error: https://www.google.com/xjs/_/js/k=xjs.s.en_US.g68ZbZBk18U.O/ck=xjs.s.tYbNuoPDI_U.L.F4.O/am=AAAAEAAAAFgC5m4AOP9BALgLShwAAACAAC0JNhZIISQkBCAAADALEwAAKA/d=1/exm=Fkg7bd,HcFEGb,IvlUe,MC8mtf,OF7gzc,RMhBfe,T4BAC,TJw5qb,Y33vzc,ZyRBae,cdos,cr,csi,d,hsm,iDPoPb,jsa,mvYTse,tg8oTe,uz938c,vWNDde,ws9Tlc,yQ43ff/ed=1/dg=2/ct=zgms/rs=ACT90oGZ2k9QAb-wfQTAPVQFKujNGOTAsQ/m=F8FRnd,MB3mMb,MkHyGd,NBZ7u,OG6ZHd,RqxLvf,T7XTS,TxZWcc,URQPYc,V9u9Nb,XMgU6d,XjCeUc,aCZVp,aa,aam1T,abd,async,bgd,dvl,eN4qad,eT9j9d,foot,iD8Yk,kyn,lu,m,m6a0l,mUpTid,mpck,mu,o02Jie,pB6Zqd,qik19b,rHjpXd,runuse,sb_wiz,sf,tl,uiNkee,vs,wkrYee,xz7cCd,zbML3c?xjs=s1, line 1379: NS_ERROR_NOT_INITIALIZED: 
+[Child 12852, Chrome_ChildThread] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 524
+[Child 12852, Chrome_ChildThread] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 524
+[Child 12852, Chrome_ChildThread] WARNING: pipe error: 232: file /builds/worker/checkouts/gecko/ipc/chromium/src/chrome/common/ipc_channel_win.cc, line 524
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+[2020-06-28T02:42:20Z ERROR xulstore::persist] removeDocument error: unavailable
+1593317380855	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "start-maximized" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofiletYPrE8"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1593317386099	Marionette	INFO	Listening on port 50337
+1593317386141	Marionette	WARN	TLS certificate errors will be ignored for this session
+1593317416263	Marionette	INFO	Stopped listening on port 50337
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x5A000D,name=PHttpChannel::Msg_DeletingChannel) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+[2020-06-28T04:10:17Z ERROR xulstore::persist] removeDocument error: unavailable
