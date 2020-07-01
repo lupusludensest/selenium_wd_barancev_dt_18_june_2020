@@ -30,6 +30,14 @@ sleep(4)
 # Verify if "Warning" is on page
 assert 'Warning:' in driver.find_element(By.ID, "content").text
 print('Text: ', (driver.find_element(By.ID, "content").text)[:8], ';')
+
+#1 Click on Appearance
+driver.find_element(By.CSS_SELECTOR, 'span.name').click()
+
+#1.1 Click on Template
+driver.find_element(By.XPATH, "//span[contains(text(), 'Template')]").click()
+
+
 driver.quit()
 
 
