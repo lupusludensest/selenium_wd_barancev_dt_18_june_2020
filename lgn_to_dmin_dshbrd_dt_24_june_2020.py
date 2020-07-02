@@ -265,7 +265,7 @@ sleep(2)
 driver.find_element(By.XPATH, "//span[contains(text(), 'Order Success')]").click()
 # для каждой страницы проверяет наличие заголовка (то есть элемента с тегом h1)
 sleep(2)
-assert 'Order Success' in driver.find_element(By.XPATH, "//h1[@style='margin-top: 0px;']").text
+assert 'Order Success Modules' in driver.find_element(By.XPATH, "//h1[@style='margin-top: 0px;']").text
 print('8.6 Word is here: ', (driver.find_element(By.XPATH, "//h1[@style='margin-top: 0px;']").text)[:30], ';')
 sleep(2)
 
