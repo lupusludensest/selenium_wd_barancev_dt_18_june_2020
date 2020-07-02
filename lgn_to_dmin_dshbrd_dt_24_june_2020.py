@@ -1,7 +1,6 @@
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions as EC
 
 # init driver
 driver = webdriver.Chrome()
@@ -30,7 +29,7 @@ sleep(4)
 
 # Verify if "Warning" is on page
 assert 'Warning:' in driver.find_element(By.ID, "content").text
-print('Text: ', (driver.find_element(By.ID, "content").text)[:8], ';')
+print('Text is here: ', (driver.find_element(By.ID, "content").text)[:8], ';')
 
 #1 Click on Appearance
 driver.find_element(By.CSS_SELECTOR, 'span.name').click()
