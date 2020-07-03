@@ -29,14 +29,20 @@ driver.find_element(By.NAME, 'login').click()
 sleep(4)
 
 #Click on all items in unordered list
-list_1 = driver.find_elements(By.XPATH, "//li[@id='app-']")
-# list_1 = driver.find_elements(By.CSS_SELECTOR, "span.name")
+list_1 = driver.find_elements(By.CSS_SELECTOR, "span.name")
+# list_1 = driver.find_elements(By.XPATH, "//li[@id='app-']//li[not(@class)]")
+# # list_1 = driver.find_elements(By.CSS_SELECTOR, "span.name")
 n=len(list_1)
 for i in range(n):
     print(f"#{i+1}/{n}; Text: {list_1[i].text}; Element: {list_1[i]}")
-    sleep(1)
-    # (list_1[i]).click()
     sleep(2)
+
+for i in range(n):
+    list_1[i].click()
+    sleep(2)
+
+# for i in list_1:
+#     i.click()
 
 driver.quit()
 
