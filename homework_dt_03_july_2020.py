@@ -12,7 +12,7 @@ driver.maximize_window()
 driver.get('http://localhost/litecart/en/')
 sleep(2)
 
-# Count and print how many goods are here on the page
+# Count and print out how many goods are here on the page
 stickers = 0 # see below: stickers = stickers + len(sticker)
 goods_on_page = driver.find_elements(By.XPATH, ".//ul[@class='listing-wrapper products']//li")
 total = str(len(goods_on_page))
@@ -24,7 +24,7 @@ for good in goods_on_page:
         print(f"Pic # {stickers+1} has {len(sticker)} sticker(s).")
         stickers = stickers + len(sticker) # see above: stickers = 0
 assert len(goods_on_page) == stickers
-print(f'\nThere are {len(goods_on_page)} goods on the page and {len(goods_on_page)} stickers.')
+print(f'\nThere are {len(goods_on_page)} goods on the page and {stickers} stickers.')
 
 
 driver.quit()

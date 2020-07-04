@@ -39,7 +39,7 @@ for item in menu_items:
 print(f"{names_items}\n", end = ' ')
 print(f"Total: {len(names_items)}")
 
-# Clicking on all items presented and verify each has an element with tag "h1"
+# Clicking on all items presented and verifying each has an element with tag "h1"
 for name_item in names_items:
     driver.find_element(By.XPATH, "//span[text()[contains(.,'" + name_item + "')]]").click()
     WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.CSS_SELECTOR, "h1")))
