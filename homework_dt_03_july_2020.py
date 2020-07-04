@@ -21,7 +21,7 @@ print(f'Goods on the page: {total}')
 # Verify every good has a sticker
 for good in goods_on_page:
         sticker = good.find_elements(By.XPATH, ".//div[starts-with(@class,'sticker')]")
-        print(f"Pic # {stickers+1} has {len(sticker)} sticker(s)")
+        print(f"Pic # {stickers+1} has {len(sticker)} sticker(s).")
         stickers = stickers + len(sticker) # see above: stickers = 0
 assert len(goods_on_page) == stickers
 print(f'\nThere are {len(goods_on_page)} goods on the page and {len(goods_on_page)} stickers.')
