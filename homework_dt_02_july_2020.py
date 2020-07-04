@@ -1,6 +1,7 @@
 from time import sleep
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 # init driver
@@ -9,7 +10,6 @@ driver.maximize_window()
 
 # open the url
 driver.get('http://localhost/litecart/admin/')
-
 sleep(2)
 
 #Input into the field "Username"
@@ -28,60 +28,20 @@ sleep(1)
 driver.find_element(By.NAME, 'login').click()
 sleep(4)
 
-#Click on all items in unordered list
-list_1 = driver.find_elements(By.CSS_SELECTOR, "span.name")
-# list_1 = driver.find_elements(By.XPATH, "//li[@id='app-']//li[not(@class)]")
-# # list_1 = driver.find_elements(By.CSS_SELECTOR, "span.name")
-n=len(list_1)
-for i in range(n):
-    print(f"#{i+1}/{n}; Text: {list_1[i].text}; Element: {list_1[i]}")
-    sleep(2)
+# Creation of Menu Items
+menu_items = driver.find_elements(By.CSS_SELECTOR, "span.name")
+names_items = []
+for item in menu_items:
+    if item in menu_items:
+        names_items.append(item.text)
 
-for i in range(n):
-    list_1[i].click()
-    sleep(2)
+# Printing of Names of items and their quantity
+print(f"{names_items}\n", end = ' ')
+print(f"Total: {len(names_items)}")
 
-# for i in list_1:
-#     i.click()
+# Clicking on all items presented and verify each has an element with tag "h1"
+for name_item in names_items:
+    driver.find_element(By.XPATH, "//span[text()[contains(.,'" + name_item + "')]]").click()
+    WebDriverWait(driver, 2).until(EC.presence_of_element_located((By.CSS_SELECTOR, "h1")))
 
 driver.quit()
-
-
-# a = [43, 65, 54, 43, 6, 43]
-# # обход по значениям
-# # count = 0
-# # for i in a:
-# #     print(i, a.index(i))
-#
-# # обход по индексам
-# n=len(a)
-# for i in range(n):
-#     print(i+1, a[i])
-#     a[i]+=5
-# print(a)
-#
-# a=[1,2,3,4,32,4,5,3,5]
-# b=[]
-# for i in a:
-#     if not i in b:
-#         b.append(i)
-# print(b)
-#
-# even=[]
-# odd=[]
-# n=len(a)
-# for i in range(n):
-#     if a[i]%2==0:
-#         even.append(i)
-#     else:
-#         odd.append(i)
-# print(even, odd)
-
-# str= 'HeLLo WorlD'
-# for i in str:
-#     if 'a'<=i<='z':
-#         print(i, 'small')
-#     elif 'A'<=i<='Z':
-#         print(i, 'big')
-#     else:
-#         print(i, 'is not letter')
