@@ -76,7 +76,3 @@ for i in range(len(mm)):
     assert len(link_array) == len(h1_array)
 
 driver.quit()
-
-
-
-
