@@ -670,3 +670,67 @@ console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Err
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1593883911636	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "start-maximized" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofileJW7sxK"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1593883914405	Marionette	INFO	Listening on port 55738
+1593883914819	Marionette	WARN	TLS certificate errors will be ignored for this session
+1593883922924	Marionette	INFO	Stopped listening on port 55738
+JavaScript error: https://www.google.com/xjs/_/js/k=xjs.s.en_US.rkncNfX9HKU.O/ck=xjs.s.4hj6Brf3LHQ.L.F4.O/am=AAAAIAAAAGAJmLsB4PwHAeAuKHEAAAAAArQk2FgghZCQEIAAAMAsTAAACA/d=1/exm=IvlUe,MC8mtf,TJw5qb,Y33vzc,ZyRBae,cdos,cr,csi,d,hsm,iDPoPb,jsa,mvYTse,tg8oTe/ed=1/dg=2/ct=zgms/rs=ACT90oGyOAk5gKY07XKmRs8DboGoWYd-sA/m=F8FRnd,MB3mMb,MkHyGd,NBZ7u,OG6ZHd,RMhBfe,RqxLvf,T7XTS,TxZWcc,URQPYc,V9u9Nb,XMgU6d,XjCeUc,aCZVp,aa,aam1T,abd,async,bgd,dvl,eN4qad,eT9j9d,foot,iD8Yk,kyn,lu,m,m6a0l,mUpTid,mpck,mu,o02Jie,pB6Zqd,qik19b,rHjpXd,runuse,sb_wiz,sf,tl,uiNkee,vs,wkrYee,xiqEse,xz7cCd,zbML3c?xjs=s1, line 1429: NS_ERROR_NOT_INITIALIZED: 
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x5A0011,name=PHttpChannel::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel] Error: (msgtype=0x6B0029,name=PNecko::Msg_RemoveRequestContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1593889026437	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "start-maximized" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofilehVA8N7"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1593889029173	Marionette	INFO	Listening on port 51912
+1593889029588	Marionette	WARN	TLS certificate errors will be ignored for this session
+1593889037255	Marionette	INFO	Stopped listening on port 51912
+JavaScript error: https://www.google.com/xjs/_/js/k=xjs.s.en_US.rkncNfX9HKU.O/ck=xjs.s.4hj6Brf3LHQ.L.F4.O/am=AAAAIAAAAGAJmLsB4PwHAeAuKHEAAAAAArQk2FgghZCQEIAAAMAsTAAACA/d=1/exm=IvlUe,MC8mtf,TJw5qb,Y33vzc,ZyRBae,cdos,cr,csi,d,hsm,iDPoPb,jsa,mvYTse,tg8oTe/ed=1/dg=2/ct=zgms/rs=ACT90oGyOAk5gKY07XKmRs8DboGoWYd-sA/m=F8FRnd,MB3mMb,MkHyGd,NBZ7u,OG6ZHd,RMhBfe,RqxLvf,T7XTS,TxZWcc,URQPYc,V9u9Nb,XMgU6d,XjCeUc,aCZVp,aa,aam1T,abd,async,bgd,dvl,eN4qad,eT9j9d,foot,iD8Yk,kyn,lu,m,m6a0l,mUpTid,mpck,mu,o02Jie,pB6Zqd,qik19b,rHjpXd,runuse,sb_wiz,sf,tl,uiNkee,vs,wkrYee,xiqEse,xz7cCd,zbML3c?xjs=s1, line 1429: NS_ERROR_NOT_INITIALIZED: 
+[2020-07-04T18:57:17Z ERROR xulstore::persist] removeDocument error: unavailable
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

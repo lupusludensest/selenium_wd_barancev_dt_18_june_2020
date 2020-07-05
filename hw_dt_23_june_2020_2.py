@@ -21,9 +21,10 @@ sleep(1)
 driver.find_element(By.NAME, 'btnK').click()
 sleep(2)
 
-# Verify if "WebDriver - World Wide Web Consortium" is on page
+# Verify if "WebDriver - World Wide Web Consortium" is on the page
 assert 'WebDriver - World Wide Web Consortium' in driver.find_element(By.XPATH, "//a[@href='https://www.w3.org/TR/webdriver/']").text
 print('Text: ', (driver.find_element(By.XPATH, "//a[@href='https://www.w3.org/TR/webdriver/']").text)[:37], ';')
+
 driver.quit()
 
 
