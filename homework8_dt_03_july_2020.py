@@ -16,7 +16,7 @@ sleep(2)
 stickers = 0 # see below: stickers = stickers + len(sticker)
 goods_on_page = driver.find_elements(By.XPATH, ".//ul[@class='listing-wrapper products']//li")
 total = str(len(goods_on_page))
-print(f'Goods on the page: {total}')
+print(f'Goods on the page: {total}\n')
 
 # Verify every good has a sticker
 for good in goods_on_page:
@@ -24,7 +24,7 @@ for good in goods_on_page:
         print(f"Pic # {stickers+1} has {len(sticker)} sticker(s).")
         stickers = stickers + len(sticker) # see above: stickers = 0
 assert len(goods_on_page) == stickers
-print(f'\nThere are {len(goods_on_page)} goods on the page and {stickers} stickers.')
-
+assert len(sticker) == 1
+print(f'\nThere are {len(goods_on_page)} goods on the page and {stickers} stickers.\n')
 
 driver.quit()
