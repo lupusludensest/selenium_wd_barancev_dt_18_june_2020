@@ -33,16 +33,6 @@ sleep(1)
 driver.find_element(By.NAME, 'login').click()
 sleep(2)
 
-# # Countries table/ct
-# # ct = driver.find_elements(By.CSS_SELECTOR, "tr.row")
-# ct = driver.find_elements(By.XPATH, "//tr[@class='row']")
-# len_ct = len(ct)
-# print(f'Lenght of table: {len_ct}\n')
-# # Looking for something/st
-# st = driver.find_elements(By.XPATH, ".//*[@id='table-zones']//tr [not(contains (@class, 'header'))]")
-# len_st = len(st)
-
-# rows=driver.find_elements(By.XPATH, ".//tr[@class='row']")
 rows=driver.find_elements(By.XPATH, ".//*[@id='table-zones']//tr [not(contains (@class, 'header'))]")
 print ('Length of something: '+str(len(rows)) + '\n')
 column_z = driver.find_elements(By.TAG_NAME, "td")
@@ -58,11 +48,12 @@ print(f'Column Z: {column_z[2].text}\n')
 # Nothing to delete from empty list
 # zones_name.pop()
 sorted_zones_list = sorted(zones_name)
-print(f'Zones name: {zones_name}\nSorted zone names: {sorted_zones_list}\n')
+print(f'Zones name: {zones_name}\n')
+print(f'Sorted zone names: {sorted_zones_list}\n')
 assert zones_name == sorted_zones_list
 print(f'Text of zones name: {str(zones_name.append(column_z[2].text))}\n')
 
-# Get into every from the countries and verify that zones are in the alphabet order
+# Get into everyone from the countries and verify that zones are in the alphabet order
 driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones")
 # Get into every from the countries
 geozones_list_text = []
@@ -72,8 +63,9 @@ geo_links = driver.find_elements_by_xpath(
 for link in geo_links:
     print(f'Link get attribute: {link.get_attribute("href")}\n')
     geozones_list_text.append(link.get_attribute('href'))
+print(f'Length geo links above: {len(geo_links)}\n')
 # Append links into special array to prevent Selenium from
-# errors like this python Message: stale element reference: element is not attached to the page document
+# errors like  this python Message: stale element reference: element is not attached to the page document
 
 # Run through the lists in the opened pages
 for i in range(len(geozones_list_text)):
@@ -87,24 +79,6 @@ for i in range(len(geozones_list_text)):
     sorted_geozones_list = sorted(geozones_list)
     print(f'Geo zones list: {geozones_list}\n')
     assert geozones_list == sorted_geozones_list
-
-# txt_ct = driver.find_elements(By.CSS_SELECTOR, "tr.row").text
-# print(f'Text1: {txt_ct}\n')
-
-# # Looking for column Name/cn
-# cn = driver.find_elements(By.XPATH, "//*[@id='content']/form/table/tbody/tr[1]/th[5]")
-# len_cn = len(cn)
-# txt_cn = driver.find_element(By.XPATH, "//*[@id='content']/form/table/tbody/tr[1]/th[5]").text
-# print(f'Lenght2: {len_cn}')
-# print(f'Text2: {txt_cn}\n')
-#
-# # Looking for Zone/zn
-# driver.get('http://localhost/litecart/admin/?app=countries&doc=edit_country&country_code=US')
-# sleep(2)
-# zn = driver.find_elements(By.XPATH, ".//*[@id='table-zones']//tr [not(contains (@class, 'header'))]")
-# len_zn = len(cn)
-# txt_zn = driver.find_element(By.XPATH, ".//*[@id='table-zones']//tr [not(contains (@class, 'header'))]").text
-# print(f'Lenght3: {len_zn}')
-# print(f'Text3: {txt_zn}\n')
+print(f'Length geo zones in select: {len(geo_zones_in_selects)}\n')
 
 driver.quit()
