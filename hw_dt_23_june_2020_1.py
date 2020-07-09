@@ -25,6 +25,7 @@ def driver(request):
     # wd = webdriver.Ie(capabilities={"requireWindowFocus": True})
     # wd = webdriver.Ie(capabilities={"IntroduceInstabilityByIgnoringProtectedModeSettings": True, "requireWindowFocus": True, "unexpectedAlertBehaviour": "dismiss", "ignoreZoomSetting": True})
     # print(f'\nCAPABILITIES: {wd.capabilities}\nEND CAPABILITIES')
+    print(f'WD capabilities: {wd.capabilities}\n')
     request.addfinalizer(wd.quit)
     return wd
 

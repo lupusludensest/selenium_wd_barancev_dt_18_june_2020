@@ -44,7 +44,6 @@ for i in range(len(mm)):
     print('#:' + str(i) + "." + link_name + ';')
 # Main menu element/mm_l
     mm_el[i].click()
-
     driver.implicitly_wait(1)
     sub_menu = driver.find_elements(By.XPATH, "//ul[@class='docs']//li//span")
     print("   Total submenu elements:" + str(len(sub_menu)))
