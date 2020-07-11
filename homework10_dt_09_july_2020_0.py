@@ -62,13 +62,13 @@ def test_litecart(driver):
     # Verify text is strikethrough on the main page
     # outer_html_rpmp = driver.find_element_by_css_selector("div#box-campaigns div.price-wrapper").value_of_css_property("outerHTML")
     outer_html_rpmp = driver.find_element_by_xpath("//s[@class='regular-price'][1]").value_of_css_property("outerHTML")
-    print(f'OuterHTMS: {outer_html_rpmp}')
+    print(f'OuterHTML on the main page: {outer_html_rpmp}')
     # assert outer_html_rpmp.index_of("</s>") != -1
     # assert outer_html_rpmp.index("</s>") != -1
 
     # Verify red text is bold on the main page
     red_text_bold_on_mp = driver.find_element_by_xpath("//strong[@class='campaign-price'][1]").value_of_css_property("outerHTML")
-    print(f'Red text is bold: {red_text_bold_on_mp}')
+    print(f'Red text is bold on the main page: {red_text_bold_on_mp}\n')
     # assert red_text_bold_on_mp.index_of("</strong>") != -1
     # assert red_text_bold_on_mp.index("</strong>") != -1
 
@@ -95,18 +95,18 @@ def test_litecart(driver):
     size_rpgp = driver.find_element(By.CSS_SELECTOR, "s.regular-price").value_of_css_property('font-size')
     size_dpgp =  driver.find_element(By.CSS_SELECTOR, "strong.campaign-price").value_of_css_property('font-size')
     assert size_rpgp < size_dpgp
-    print(f'      Regular price size on good page: {size_rpgp} VS Discount price size on good page: {size_dpgp}')
+    print(f'      Regular price size on the good page: {size_rpgp} VS Discount price size on good page: {size_dpgp}')
 
     # Verify text is strikethrough on the good page
     # outer_html_rpgp = str(driver.find_element_by_css_selector("div.price-wrapper").value_of_css_property("outerHTML"))
     outer_html_rpgp = driver.find_element_by_xpath("//s[@class='regular-price']").value_of_css_property("outerHTML")
-    print(f'\nOuterHTMS: {outer_html_rpgp}')
+    print(f'      OuterHTML on the good page: {outer_html_rpgp}')
     # assert outer_html_rpgp.index_of("</s>") != -1
     # assert outer_html_rpgp.index("</s>") != -1
 
     # Verify red text is bold on the good page
     red_text_bold_on_gp = driver.find_element_by_xpath("//strong[@class='campaign-price'][1]").value_of_css_property("outerHTML")
-    print(f'Red text is bold: {red_text_bold_on_gp}')
+    print(f'      Red text is bold on the good page: {red_text_bold_on_gp}')
     # assert red_text_bold_on_gp.index_of("</strong>") != -1
     # assert red_text_bold_on_gp.index("</strong>") != -1
 
