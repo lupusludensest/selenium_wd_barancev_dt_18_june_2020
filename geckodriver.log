@@ -860,3 +860,18 @@ JavaScript error: https://www.google.com/xjs/_/js/k=xjs.s.en_US.kTjj9YyLJyk.O/ck
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1594503848070	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "start-maximized" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofile61htpp"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1594503850136	Marionette	INFO	Listening on port 64773
+1594503850219	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594503851209	Marionette	INFO	Stopped listening on port 64773
+[2020-07-11T21:44:11Z ERROR xulstore::persist] removeDocument error: unavailable
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+

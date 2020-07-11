@@ -9,7 +9,7 @@ import unittest
 def driver(request):
     wd = webdriver.Chrome()
     # wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["--start-fullscreen"]}})
-    # wd = webdriver.Firefox()
+    # # wd = webdriver.Firefox()
     # options = webdriver.FirefoxOptions()
     # options.binary_location = "C:\\Program Files\\Firefox Nightly\\firefox.exe"
     # options.add_argument("start-maximized")
