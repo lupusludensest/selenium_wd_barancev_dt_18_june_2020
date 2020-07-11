@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+import unittest
 
 @pytest.fixture
 def driver(request):
@@ -32,102 +33,102 @@ def driver(request):
 def test_litecart(driver):
     driver.get("http://localhost/litecart/en/")
     driver.maximize_window()
+
 # 1
     # Verify text "Yellow Duck" is here on the good on main page
     text_on_good_mp = driver.find_element(By.XPATH, "//div[contains(text(),'Yellow Duck')][1]").text
     print(f'\nText on the main page: {text_on_good_mp}')
-    assert 'Yellow Duck' == text_on_good_mp
-    # Verify regular price "$20" is here on the good on main page
+
+    # Verify regular price is here on the good on main page
     reg_prc_on_good_mp = driver.find_element(By.XPATH, "//s[@class='regular-price'][1]").text
-    print(f'\nRegular price on the main page: {reg_prc_on_good_mp}')
-    assert '$20' == reg_prc_on_good_mp
-    # Verify discount price "$18" is here on the good on main page
+    print(f'Regular price on the main page: {reg_prc_on_good_mp}')
+
+    # Verify discount price is here on the good on main page
     dsc_prc_on_good_mp = driver.find_element(By.XPATH, "//strong[@class='campaign-price'][1]").text
-    print(f'\nDiscount price on the main page: {dsc_prc_on_good_mp}')
-    assert '$18' == dsc_prc_on_good_mp
+    print(f'Discount price on the main page: {dsc_prc_on_good_mp}')
+
+    # Regular price on the main page: regular price font is grey, R=G=B
+    color_font_rpmp = driver.find_element_by_xpath("//s[@class='regular-price'][1]").value_of_css_property("color")
+
+    # Discount price on the main page: regular price font is red and bold, G=B=0
+    color_font_dpmp = driver.find_element_by_xpath("//strong[@class='campaign-price'][1]").value_of_css_property("color")
+
+    # Verify regular price text < discount price on the main page
+    size_rpmp = driver.find_element_by_xpath("//s[@class='regular-price'][1]").size
+    size_dpmp =  driver.find_element_by_xpath("//strong[@class='campaign-price'][1]").size
+    assert size_rpmp['height'] < size_dpmp['height']
+    print(f'Regular price size on main page: {size_rpmp}\nVS Discount price size on main page: {size_dpmp}')
+
+    # Verify text is strikethrough on the main page
+    outer_html_rpmp = driver.find_element_by_css_selector("div#box-campaigns div.price-wrapper").value_of_css_property("outerHTML")
+    print(outer_html_rpmp)
+    # assert outer_html_rpmp.index_of("</s>") != -1
+
 # 2
     # Go to good page and verify text "Yellow Duck" is here
     driver.get("http://localhost/litecart/en/rubber-ducks-c-1/subcategory-c-2/yellow-duck-p-1")
     text_on_good_gp = driver.find_element(By.CSS_SELECTOR, "h1.title").text
-    print(f'\nText on the good page: {text_on_good_gp}')
-    assert 'Yellow Duck' == text_on_good_gp
+    print(f'      Text on the good page: {text_on_good_gp}')
     # Go to good page and verify regular price "$20" is here
     reg_prc_on_good_gp = driver.find_element(By.CSS_SELECTOR, "s.regular-price").text
-    print(f'\nRegular price on the good page: {reg_prc_on_good_gp}')
-    assert '$20' == reg_prc_on_good_gp
-    # Go to good page and verify discount price "$18" is here
+    print(f'      Regular price on the good page: {reg_prc_on_good_gp}')
+
+    # Go to good page and verify discount price is here
     dsc_prc_on_good_gp = driver.find_element(By.CSS_SELECTOR, "strong.campaign-price").text
-    print(f'\nRegular price on the good page: {dsc_prc_on_good_gp}')
-    assert '$18' == dsc_prc_on_good_gp
-# 3
-    # Verify regular price is crossed out and gray (we can assume that the “gray” color is one with
-    # the same values in the RGBa representation for the R, G and B channels)
-def get_rgba_array(rgba_string):
-    # Simpler way?
-    rgba_string = rgba_string.split('(')[1]
-    rgba_string = rgba_string.split(')')[0]
-    rgba_array = rgba_string.split(',')
-    for x in range(0, len(rgba_array)):
-        rgba_array[x] = int(rgba_array[x])
-    return rgba_array
+    print(f'      Regular price on the good page: {dsc_prc_on_good_gp}')
 
-def style_check(old_price_element,new_price_element):
-    # How to check stroke and bold styles in any browser? I cannot find text-decoration for stroke in FF.
-    # So I use "s"-tag for stroke and "strong"-tag for bold checks
+    # Regular price on the good page: regular price font is grey, R=G=B
+    color_font_rpgp = driver.find_element_by_css_selector("s.regular-price").value_of_css_property("color")
 
-    # check grey:
-    old_price_color = old_price_element.value_of_css_property("color")
-    print(f'Old price color: {old_price_color}')
-    old_price_color = get_rgba_array(old_price_color)
-    assert old_price_color[0] == old_price_color[0]
-    assert old_price_color[1] == old_price_color[2]
+    # Discount price on the good page: regular price font is red and bold, G=B=0
+    color_font_dpgp = driver.find_element_by_css_selector("strong.campaign-price").value_of_css_property("color")
 
-    # check red:
-    new_price_color = new_price_element.value_of_css_property("color")
-    print(f'New price color: {new_price_color}')
-    new_price_color = get_rgba_array(new_price_color)
-    assert new_price_color[0] > 0
-    assert new_price_color[1] == 0
-    assert new_price_color[2] == 0
+    # Verify regular price text < discount price on the good page
+    size_rpgp = driver.find_element(By.CSS_SELECTOR, "s.regular-price").size
+    size_dpgp =  driver.find_element(By.CSS_SELECTOR, "strong.campaign-price").size
+    assert size_rpgp['height'] < size_dpgp['height']
+    print(f'      Regular price size on good page: {size_rpgp}\nVS Discount price size on good page: {size_dpgp}')
 
-    # compare size, namely the height
-    old_price_size = old_price_element.size
-    print(f'Old price size: {old_price_size}')
-    new_price_size = new_price_element.size
-    print(f'New price size: {new_price_size}')
-    assert old_price_size['height'] < new_price_size['height']
+    # Verify text is strikethrough on the good page
+    outer_html_rpgp = driver.find_element_by_css_selector("div.price-wrapper").value_of_css_property("outerHTML")
+    print(outer_html_rpgp)
+    # assert outer_html_rpgp.index_of("</s>") != -1
 
+    # Asserts, texts and prices are the same on the main and on the good pages
+    assert text_on_good_mp == text_on_good_gp
+    assert reg_prc_on_good_mp == reg_prc_on_good_gp
+    assert dsc_prc_on_good_mp == dsc_prc_on_good_gp
 
-def test_campaigns(driver):
-    wait = WebDriverWait(driver, 15)
-    driver.get("http://localhost/litecart/")
-    product = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#box-campaigns li")))[0]
-    link = product.find_element(By.CSS_SELECTOR,"a.link")
-    name_element = product.find_element(By.CSS_SELECTOR,".name")
-    regular_price_element = product.find_element(By.CSS_SELECTOR,"s.regular-price")
-    campaign_price_element = product.find_element(By.CSS_SELECTOR,"strong.campaign-price")
+    # Transforming RGBa into array
+    def get_rgba_array(rgba_string):
+        # Simpler way?
+        rgba_string = rgba_string.split('(')[1]
+        rgba_string = rgba_string.split(')')[0]
+        rgba_array = rgba_string.split(',')
+        for x in range(0, len(rgba_array)):
+            rgba_array[x] = int(rgba_array[x])
+        return rgba_array
 
-    name = name_element.text
-    print(f'\nName on main page: {name}')
-    regular_price = regular_price_element.text
-    print(f'Regular price on main page: {regular_price}')
-    campaign_price = campaign_price_element.text
-    print(f'Campaign price on main page: {campaign_price}')
+    # Asserts regular prices on the main and on the good pages are of grey font, R=G=B
+    color_font_rpmp = get_rgba_array(color_font_rpmp)
+    assert color_font_rpmp[0] == color_font_rpmp[1]
+    assert color_font_rpmp[1] == color_font_rpmp[2]
+    print(f'\nRGBa of regular price on main page: {color_font_rpmp}')
 
-    style_check(regular_price_element,campaign_price_element)
+    color_font_rpgp = get_rgba_array(color_font_rpgp)
+    assert color_font_rpgp[0] == color_font_rpgp[1]
+    assert color_font_rpgp[1] == color_font_rpgp[2]
+    print(f'RGBa of regular price on good page: {color_font_rpgp}')
 
-    # Go to the product page:
-    link.click()
-    product = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#box-product")))[0]
-    name_element = product.find_element(By.CSS_SELECTOR,"[itemprop=name]")
-    regular_price_element = product.find_element(By.CSS_SELECTOR,"s.regular-price")
-    campaign_price_element = product.find_element(By.CSS_SELECTOR,"strong.campaign-price")
+    # Asserts discount prices on the main and on the good pages are of red bold font, G=B=0
+    color_font_dpmp = get_rgba_array(color_font_dpmp)
+    assert color_font_dpmp[0] != 0
+    assert color_font_dpmp[1] == 0
+    assert color_font_dpmp[1] == color_font_dpmp[2]
+    print(f'RGBa of discount price on main page: {color_font_dpmp}')
 
-    assert name == name_element.text
-    print(f'Name on product page: {name}')
-    assert regular_price == regular_price_element.text
-    print(f'Regular price on product page: {regular_price}')
-    assert campaign_price == campaign_price_element.text
-    print(f'Campaign price on product page: {campaign_price}')
-
-    style_check(regular_price_element,campaign_price_element)
+    color_font_dpgp = get_rgba_array(color_font_dpgp)
+    assert color_font_dpgp[0] != 0
+    assert color_font_dpgp[1] == 0
+    assert color_font_dpgp[1] == color_font_dpmp[2]
+    print(f'RGBa of discount price on good page: {color_font_dpgp}')

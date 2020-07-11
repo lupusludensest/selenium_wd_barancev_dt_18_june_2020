@@ -47,14 +47,14 @@ def style_check(old_price_element,new_price_element):
     old_price_color = old_price_element.value_of_css_property("color")
     print(f'Old price color: {old_price_color}')
     old_price_color = get_rgba_array(old_price_color)
-    assert old_price_color[0] == old_price_color[0]
+    assert old_price_color[0] == old_price_color[1]
     assert old_price_color[1] == old_price_color[2]
 
     # check red:
     new_price_color = new_price_element.value_of_css_property("color")
     print(f'New price color: {new_price_color}')
     new_price_color = get_rgba_array(new_price_color)
-    assert new_price_color[0] > 0
+    assert new_price_color[0] != 0
     assert new_price_color[1] == 0
     assert new_price_color[2] == 0
 
