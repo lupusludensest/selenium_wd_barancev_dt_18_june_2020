@@ -66,6 +66,12 @@ def test_litecart(driver):
     # assert outer_html_rpmp.index_of("</s>") != -1
     # assert outer_html_rpmp.index("</s>") != -1
 
+    # Verify red text is bold on the main page
+    red_text_bold_on_mp = driver.find_element_by_xpath("//strong[@class='campaign-price'][1]").value_of_css_property("outerHTML")
+    print(f'Red text is bold: {red_text_bold_on_mp}')
+    # assert red_text_bold_on_mp.index_of("</strong>") != -1
+    # assert red_text_bold_on_mp.index("</strong>") != -1
+
 # 2
     # Go to good page and verify text "Yellow Duck" is here
     driver.get("http://localhost/litecart/en/rubber-ducks-c-1/subcategory-c-2/yellow-duck-p-1")
@@ -97,6 +103,12 @@ def test_litecart(driver):
     print(f'\nOuterHTMS: {outer_html_rpgp}')
     # assert outer_html_rpgp.index_of("</s>") != -1
     # assert outer_html_rpgp.index("</s>") != -1
+
+    # Verify red text is bold on the good page
+    red_text_bold_on_gp = driver.find_element_by_xpath("//strong[@class='campaign-price'][1]").value_of_css_property("outerHTML")
+    print(f'Red text is bold: {red_text_bold_on_gp}')
+    # assert red_text_bold_on_gp.index_of("</strong>") != -1
+    # assert red_text_bold_on_gp.index("</strong>") != -1
 
     # Asserts, texts and prices are the same on the main and on the good pages
     assert text_on_good_mp == text_on_good_gp
