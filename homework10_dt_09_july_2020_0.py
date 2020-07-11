@@ -54,15 +54,17 @@ def test_litecart(driver):
     color_font_dpmp = driver.find_element_by_xpath("//strong[@class='campaign-price'][1]").value_of_css_property("color")
 
     # Verify regular price text < discount price on the main page
-    size_rpmp = driver.find_element_by_xpath("//s[@class='regular-price'][1]").size
-    size_dpmp =  driver.find_element_by_xpath("//strong[@class='campaign-price'][1]").size
-    assert size_rpmp['height'] < size_dpmp['height']
-    print(f'Regular price size on main page: {size_rpmp}\nVS Discount price size on main page: {size_dpmp}')
+    size_rpmp = driver.find_element_by_xpath("//s[@class='regular-price'][1]").value_of_css_property('font-size')
+    size_dpmp =  driver.find_element_by_xpath("//strong[@class='campaign-price'][1]").value_of_css_property('font-size')
+    assert size_rpmp < size_dpmp
+    print(f'Regular price size on main page: {size_rpmp} VS Discount price size on main page: {size_dpmp}')
 
     # Verify text is strikethrough on the main page
-    outer_html_rpmp = driver.find_element_by_css_selector("div#box-campaigns div.price-wrapper").value_of_css_property("outerHTML")
-    print(outer_html_rpmp)
+    # outer_html_rpmp = driver.find_element_by_css_selector("div#box-campaigns div.price-wrapper").value_of_css_property("outerHTML")
+    outer_html_rpmp = driver.find_element_by_xpath("//s[@class='regular-price'][1]").value_of_css_property("outerHTML")
+    print(f'OuterHTMS: {outer_html_rpmp}')
     # assert outer_html_rpmp.index_of("</s>") != -1
+    # assert outer_html_rpmp.index("</s>") != -1
 
 # 2
     # Go to good page and verify text "Yellow Duck" is here
@@ -84,15 +86,17 @@ def test_litecart(driver):
     color_font_dpgp = driver.find_element_by_css_selector("strong.campaign-price").value_of_css_property("color")
 
     # Verify regular price text < discount price on the good page
-    size_rpgp = driver.find_element(By.CSS_SELECTOR, "s.regular-price").size
-    size_dpgp =  driver.find_element(By.CSS_SELECTOR, "strong.campaign-price").size
-    assert size_rpgp['height'] < size_dpgp['height']
-    print(f'      Regular price size on good page: {size_rpgp}\nVS Discount price size on good page: {size_dpgp}')
+    size_rpgp = driver.find_element(By.CSS_SELECTOR, "s.regular-price").value_of_css_property('font-size')
+    size_dpgp =  driver.find_element(By.CSS_SELECTOR, "strong.campaign-price").value_of_css_property('font-size')
+    assert size_rpgp < size_dpgp
+    print(f'      Regular price size on good page: {size_rpgp} VS Discount price size on good page: {size_dpgp}')
 
     # Verify text is strikethrough on the good page
-    outer_html_rpgp = driver.find_element_by_css_selector("div.price-wrapper").value_of_css_property("outerHTML")
-    print(outer_html_rpgp)
+    # outer_html_rpgp = str(driver.find_element_by_css_selector("div.price-wrapper").value_of_css_property("outerHTML"))
+    outer_html_rpgp = driver.find_element_by_xpath("//s[@class='regular-price']").value_of_css_property("outerHTML")
+    print(f'\nOuterHTMS: {outer_html_rpgp}')
     # assert outer_html_rpgp.index_of("</s>") != -1
+    # assert outer_html_rpgp.index("</s>") != -1
 
     # Asserts, texts and prices are the same on the main and on the good pages
     assert text_on_good_mp == text_on_good_gp
