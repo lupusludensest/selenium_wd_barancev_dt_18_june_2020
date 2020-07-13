@@ -118,7 +118,7 @@ def test_litecart(driver):
     driver.find_element(By.NAME, "create_account").click()
     sleep(4)
 
-# Did not find how to bypass Captcha - so I installed sleep(10) and during these 20 sec filled manually
+# Did not find how to bypass Captcha - so I installed sleep(10) and during these 10 sec filled manually
 # В форме регистрации есть капча, её нужно отключить в админке учебного приложения на вкладке Settings -> Security.
 
     # Click Logout button
