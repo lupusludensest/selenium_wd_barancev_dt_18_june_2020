@@ -125,7 +125,7 @@ def test_litecart(driver):
     # driver.find_element(By.XPATH, "//a[contains(text(),'Logout')]").click()
     # driver.find_element(By.XPATH, "//a[@href='http://localhost/litecart/en/logout']").click()
     account_links = WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#navigation #box-account li a")))
-    account_links[3].click()
+    account_links[4].click()
 
     # 1th Login as registered user
     driver.find_element(By.NAME, "email")
