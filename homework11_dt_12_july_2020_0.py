@@ -96,7 +96,7 @@ def test_litecart(driver):
     # Input Email: sanoy2006@rambler.ru into the field Email
     driver.find_element(By.NAME, "email")
     driver.find_element(By.NAME, "email").clear()
-    driver.find_element(By.NAME, "email").send_keys('4sanoy2006@rambler.ru')
+    driver.find_element(By.NAME, "email").send_keys('6sanoy2006@rambler.ru')
 
     # Input Phone: 4074354433 into the field Phone
     driver.find_element(By.NAME, "phone")
@@ -125,12 +125,12 @@ def test_litecart(driver):
     # driver.find_element(By.XPATH, "//a[contains(text(),'Logout')]").click()
     # driver.find_element(By.XPATH, "//a[@href='http://localhost/litecart/en/logout']").click()
     account_links = WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#navigation #box-account li a")))
-    account_links[4].click()
+    account_links[3].click()
 
     # 1th Login as registered user
     driver.find_element(By.NAME, "email")
     driver.find_element(By.NAME, "email").clear()
-    driver.find_element(By.NAME, "email").send_keys('4sanoy2006@rambler.ru')
+    driver.find_element(By.NAME, "email").send_keys('6sanoy2006@rambler.ru')
 
     driver.find_element(By.NAME, "password")
     driver.find_element(By.NAME, "password").clear()
