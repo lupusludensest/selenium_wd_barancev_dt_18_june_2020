@@ -875,3 +875,39 @@ console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Err
 
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
+1594688247292	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "start-maximized" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofile4ZEYbs"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1594688250339	Marionette	INFO	Listening on port 52303
+1594688250455	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594688254063	Marionette	INFO	Stopped listening on port 52303
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+[2020-07-14T00:57:34Z ERROR xulstore::persist] removeDocument error: unavailable
+1594688286623	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "start-maximized" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofileN8Ghbb"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1594688288910	Marionette	INFO	Listening on port 52378
+1594688289275	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594688292776	Marionette	INFO	Stopped listening on port 52378
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+[2020-07-14T00:58:13Z ERROR xulstore::persist] removeDocument error: unavailable
+1594688364193	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofileUiaj3b"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1594688366490	Marionette	INFO	Listening on port 52512
+1594688366842	Marionette	WARN	TLS certificate errors will be ignored for this session
+1594688370359	Marionette	INFO	Stopped listening on port 52512
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+[2020-07-14T00:59:31Z ERROR xulstore::persist] removeDocument error: unavailable
