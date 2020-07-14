@@ -24,7 +24,6 @@ def driver(request):
     request.addfinalizer(wd.quit)
     return wd
 
-
 def test_campaigns(driver):
     wait = WebDriverWait(driver, 15)
 
@@ -34,7 +33,7 @@ def test_campaigns(driver):
 
     # Go to registration form
     driver.get("http://localhost/litecart/")
-    product = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#box-account-login tr")))[4]
+    product = WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#box-account-login tr")))[4]
     link = product.find_element(By.CSS_SELECTOR, "a")
     link.click()
 
@@ -65,7 +64,7 @@ def test_campaigns(driver):
     account_box.find_element(By.CSS_SELECTOR, "button[name=create_account]").click()
 
     # 1st logout
-    account_links = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#navigation #box-account li a")))
+    account_links = WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#navigation #box-account li a")))
     account_links[3].click()
 
     # Login
@@ -76,5 +75,5 @@ def test_campaigns(driver):
     login_form.find_element(By.CSS_SELECTOR, "button[name=login]").click()
 
     # 2d logout
-    account_links = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#navigation #box-account li a")))
+    account_links = WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#navigation #box-account li a")))
     account_links[3].click()

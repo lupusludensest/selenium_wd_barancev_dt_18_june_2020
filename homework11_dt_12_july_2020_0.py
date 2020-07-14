@@ -5,10 +5,11 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from time import sleep
 from selenium.webdriver.support.ui import Select
+from random import randint
 
 @pytest.fixture
 def driver(request):
-    wd = webdriver.Chrome()
+    # wd = webdriver.Chrome()
     # wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["--start-fullscreen"]}})
     # # wd = webdriver.Firefox()
     # options = webdriver.FirefoxOptions()
@@ -21,7 +22,7 @@ def driver(request):
     # wd = webdriver.Firefox(capabilities={"marionette": True})
     # old method
     # wd = webdriver.Firefox(capabilities={"marionette": False})
-    # wd = webdriver.Edge(executable_path="C:\Webdrivers\msedgedriver")
+    wd = webdriver.Edge(executable_path="C:\Webdrivers\msedgedriver")
     # wd = webdriver.Ie()
     # wd = webdriver.Ie(capabilities={"unexpectedAlertBehaviour": "dismiss"})
     # wd = webdriver.Ie(capabilities={"requireWindowFocus": True})
@@ -35,54 +36,65 @@ def test_litecart(driver):
     driver.get("http://localhost/litecart/en/")
     driver.maximize_window()
 
-    # 1) регистрация новой учётной записи с достаточно уникальным адресом электронной почты (чтобы не конфликтовало
-    # с ранее созданными пользователями, в том числе при предыдущих запусках того же самого сценария),\
+    # Generators of password and name
+    password = str(randint(999, 9999))
+    name = 'name' + password
+    print(f'Name: {name} and password: {password}')
+
     # Click on button New customers click here
     driver.find_element(By.XPATH, "//a[contains(text(),'New customers click here')]").click()
+    sleep(2)
+
+    # Locators
+    TAX_ID = driver.find_element(By.NAME, "tax_id")
+    COMPANY = driver.find_element(By.NAME, "company")
+    FIRST_NAME = driver.find_element(By.NAME, "firstname")
+    LAST_NAME = driver.find_element(By.NAME, "lastname")
+    ADDRESS_1 = driver.find_element(By.NAME, "address1")
+    ADDRESS_2 = driver.find_element(By.NAME, "address2")
+    POST_CODE = driver.find_element(By.NAME, "postcode")
+    CITY = driver.find_element(By.NAME, "city")
+    COUNTRY_DROP_OUT = driver.find_element(By.XPATH, "//span[@class='selection']")
+    EMAIL = driver.find_element(By.NAME, "email")
+    PHONE = driver.find_element(By.NAME, "phone")
+    PASSWORD = driver.find_element(By.NAME, "password")
+    CONFIRMED_PASSWORD = driver.find_element(By.NAME, "confirmed_password")
+    CREATE_ACCOUNT_BUTTON = driver.find_element(By.NAME, "create_account")
 
     # Input tax id: 987-76-5431 into the field Tax ID
-    driver.find_element(By.NAME, "tax_id")
-    driver.find_element(By.NAME, "tax_id").clear()
-    driver.find_element(By.NAME, "tax_id").send_keys('987-76-5431')
+    TAX_ID.clear()
+    TAX_ID.send_keys('987-76-5431')
 
     # Input Company: Red Cucumber LLC into the field Company
-    driver.find_element(By.NAME, "company")
-    driver.find_element(By.NAME, "company").clear()
-    driver.find_element(By.NAME, "company").send_keys('Red Cucumber LLC')
+    COMPANY.clear()
+    COMPANY.send_keys('Red Cucumber LLC')
 
-    # Input First Name: Holden into the field First Name
-    driver.find_element(By.NAME, "firstname")
-    driver.find_element(By.NAME, "firstname").clear()
-    driver.find_element(By.NAME, "firstname").send_keys('Holden')
+    # Input First Name: * into the field First Name
+    FIRST_NAME.clear()
+    FIRST_NAME.send_keys('First_' + name)
 
-    # Input Last Name: Colfield into the field Last Name
-    driver.find_element(By.NAME, "lastname")
-    driver.find_element(By.NAME, "lastname").clear()
-    driver.find_element(By.NAME, "lastname").send_keys('Colfield')
+    # Input Last Name: * into the field Last Name
+    LAST_NAME.clear()
+    LAST_NAME.send_keys('Last_' + name)
 
     # Input Address 1: 2165 NW 184nd St into the field Address 1
-    driver.find_element(By.NAME, "address1")
-    driver.find_element(By.NAME, "address1").clear()
-    driver.find_element(By.NAME, "address1").send_keys('2165 NW 184nd St')
+    ADDRESS_1.clear()
+    ADDRESS_1.send_keys('2165 NW 184nd St')
 
     # Input Address 2: No appartment Beach into the field Address 2
-    driver.find_element(By.NAME, "address2")
-    driver.find_element(By.NAME, "address2").clear()
-    driver.find_element(By.NAME, "address2").send_keys('No appartment')
+    ADDRESS_2.clear()
+    ADDRESS_2.send_keys('No appartment')
 
     # Input Postcode: 33987 into the field Postcode
-    driver.find_element(By.NAME, "postcode")
-    driver.find_element(By.NAME, "postcode").clear()
-    driver.find_element(By.NAME, "postcode").send_keys('33987')
+    POST_CODE.clear()
+    POST_CODE.send_keys('33987')
 
     # Input City: North Miami into the field City
-    driver.find_element(By.NAME, "city")
-    driver.find_element(By.NAME, "city").clear()
-    driver.find_element(By.NAME, "city").send_keys('North Miami')
+    CITY.clear()
+    CITY.send_keys('North Miami')
 
     # Choose Country: United States into the field Country
-    driver.find_element(By.XPATH, "//span[@class='selection']").click()
-    driver.find_element(By.CSS_SELECTOR, "input.select2-search__field")
+    COUNTRY_DROP_OUT.click()
     driver.find_element(By.CSS_SELECTOR, "input.select2-search__field").clear()
     driver.find_element(By.CSS_SELECTOR, "input.select2-search__field").send_keys('United States')
 
@@ -93,59 +105,42 @@ def test_litecart(driver):
     selector.select_by_visible_text('Florida')
     print(f'\nElement: {element}; Selector: {selector}\n')
 
-    # Input Email: sanoy2006@rambler.ru into the field Email
-    driver.find_element(By.NAME, "email")
-    driver.find_element(By.NAME, "email").clear()
-    driver.find_element(By.NAME, "email").send_keys('6sanoy2006@rambler.ru')
+    # Input Email: * into the field Email
+    EMAIL.clear()
+    EMAIL.send_keys(name + '@sample.com')
 
     # Input Phone: 4074354433 into the field Phone
-    driver.find_element(By.NAME, "phone")
-    driver.find_element(By.NAME, "phone").clear()
-    driver.find_element(By.NAME, "phone").send_keys('4074354433')
+    PHONE.clear()
+    PHONE.send_keys('4074354433')
 
-    # Input Desired Password: Test12!@ into the field Desired Password
-    driver.find_element(By.NAME, "password")
-    driver.find_element(By.NAME, "password").clear()
-    driver.find_element(By.NAME, "password").send_keys('Test12!@')
+    # Input Desired Password: * into the field Desired Password
+    PASSWORD.clear()
+    PASSWORD.send_keys(password)
 
-    # Input Confirm Password: Test12!@ into the field Confirm Password
-    driver.find_element(By.NAME, "confirmed_password")
-    driver.find_element(By.NAME, "confirmed_password").clear()
-    driver.find_element(By.NAME, "confirmed_password").send_keys('Test12!@')
-    sleep(10)
+    # Input Confirm Password: * into the field Confirm Password
+    CONFIRMED_PASSWORD.clear()
+    CONFIRMED_PASSWORD.send_keys(password)
+    sleep(2)
 
     # Click Create Account button
-    driver.find_element(By.NAME, "create_account").click()
-    sleep(4)
+    CREATE_ACCOUNT_BUTTON.click()
+    sleep(2)
 
-# Did not find how to bypass Captcha - so I installed sleep(10) and during these 10 sec filled manually
 # В форме регистрации есть капча, её нужно отключить в админке учебного приложения на вкладке Settings -> Security.
 
-    # Click Logout button
-    # driver.find_element(By.XPATH, "//a[contains(text(),'Logout')]").click()
-    # driver.find_element(By.XPATH, "//a[@href='http://localhost/litecart/en/logout']").click()
+    # Click Logout button 1th time
     account_links = WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#navigation #box-account li a")))
     account_links[3].click()
 
-    # 1th Login as registered user
-    driver.find_element(By.NAME, "email")
-    driver.find_element(By.NAME, "email").clear()
-    driver.find_element(By.NAME, "email").send_keys('6sanoy2006@rambler.ru')
+    # 1th time Login as registered user
+    login_form = WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#navigation form[name=login_form]")))[0]
+    login_form.find_element(By.NAME, "email").send_keys(name + '@sample.com')
+    login_form.find_element(By.NAME, "password").send_keys(password)
+    login_form.find_element(By.NAME, "login").click()
 
-    driver.find_element(By.NAME, "password")
-    driver.find_element(By.NAME, "password").clear()
-    driver.find_element(By.NAME, "password").send_keys('Test12!@')
-
-    # Click in checkbox Remember Me remember_me
-    driver.find_element(By.NAME, "remember_me").click()
-
-    # Click on Login button
-    driver.find_element(By.NAME, "login").click()
-    sleep(4)
-
-    # Click Logout button
-    # driver.find_element(By.XPATH, "//a[contains(text(),'Logout')]").click()
+    # Click Logout button 2d time
     account_links = WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#navigation #box-account li a")))
     account_links[3].click()
+
 
 
