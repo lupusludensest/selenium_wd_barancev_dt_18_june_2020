@@ -100,7 +100,7 @@ def test_litecart(driver):
 
     # Choose Zone/State/Province: Florida into the field Zone/State/Province
     element = WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#create-account.box select[name=zone_code]")))
-    element.click();
+    element.click()
     selector = Select(element)
     selector.select_by_visible_text('Florida')
     print(f'\nElement: {element}; Selector: {selector}\n')
