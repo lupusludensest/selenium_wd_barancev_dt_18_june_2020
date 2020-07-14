@@ -39,7 +39,7 @@ def test_litecart(driver):
     # Generators of password and name
     password = str(randint(999, 9999))
     name = 'name' + password
-    print(f'Name: {name} and password: {password}')
+    print(f'\nName: {name} and password: {password}')
 
     # Click on button New customers click here
     driver.find_element(By.XPATH, "//a[contains(text(),'New customers click here')]").click()
