@@ -1,3 +1,33 @@
+[x] Задание 7. Сделайте сценарий, проходящий по всем разделам админки
+# Сделайте сценарий, который выполняет следующие действия в учебном приложении litecart.
+#
+# 1) входит в панель администратора http://localhost/litecart/admin
+# 2) прокликивает последовательно все пункты меню слева, включая вложенные пункты
+# 3) для каждой страницы проверяет наличие заголовка (то есть элемента с тегом h1)
+#
+# Можно оформить сценарий либо как тест, либо как отдельный исполняемый файл.
+#
+# Если возникают проблемы с выбором локаторов для поиска элементов -- обращайтесь в чат за помощью.
+#
+# -----
+#
+# Уложите созданный файл, содержащий сценарий, в ранее созданный репозиторий. В качестве ответа на задание отправьте ссылку на свой репозиторий и указание, какой именно файл содержит нужный сценарий.
+#
+# Submission status
+# Attempt number	This is attempt 4.
+# Submission status	Submitted for grading
+# Grading status	Graded
+# Last modified	Saturday, 4 July 2020, 10:51 PM
+# Online text
+# View summary
+# Hello, boss.
+#
+# One more attempt. Hope last one.
+#
+# https://github.com/LupusLudensEst/SeleniumWD_Barancev_dt_18_june_2020/blob/master/homework_dt_02_july_2020_2.py
+#
+# Sincerely, Vic
+
 import time
 import pytest
 from selenium import webdriver

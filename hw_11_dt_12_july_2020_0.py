@@ -1,3 +1,77 @@
+# [x] Задание 11. Сделайте сценарий регистрации пользователя
+# Сделайте сценарий для регистрации нового пользователя в учебном приложении litecart (не в админке, а в клиентской части магазина).
+#
+# Сценарий должен состоять из следующих частей:
+#
+# 1) регистрация новой учётной записи с достаточно уникальным адресом электронной почты (чтобы не конфликтовало с ранее созданными пользователями, в том числе при предыдущих запусках того же самого сценария),
+# 2) выход (logout), потому что после успешной регистрации автоматически происходит вход,
+# 3) повторный вход в только что созданную учётную запись,
+# 4) и ещё раз выход.
+#
+# В качестве страны выбирайте United States, штат произвольный. При этом формат индекса -- пять цифр.
+#
+# Можно оформить сценарий либо как тест, либо как отдельный исполняемый файл.
+#
+# Проверки можно никакие не делать, только действия -- заполнение полей, нажатия на кнопки и ссылки. Если сценарий дошёл до конца, то есть созданный пользователь смог выполнить вход и выход -- значит создание прошло успешно.
+#
+# В форме регистрации есть капча, её нужно отключить в админке учебного приложения на вкладке Settings -> Security.
+#
+# -----
+#
+# Уложите созданный файл, содержащий сценарий, в ранее созданный репозиторий. В качестве ответа на задание отправьте ссылку на свой репозиторий и указание, какой именно файл содержит нужный сценарий.
+#
+# Submission status
+# Attempt number	This is attempt 2.
+# Submission status	Submitted for grading
+# Grading status	Graded
+# Last modified	Monday, 13 July 2020, 8:48 PM
+# Online text
+# View summary
+# Good evening, boss.
+#
+# Attempt #2 hw11:
+#
+# https://github.com/LupusLudensEst/SeleniumWD_Barancev_dt_18_june_2020/blob/master/homework11_dt_12_july_2020_0.py
+#
+# Truly yours, Vic
+#
+# ________
+#
+# Good evening, boss.
+#
+# Find herein hw11: https://github.com/LupusLudensEst/SeleniumWD_Barancev_dt_18_june_2020/blob/master/homework11_dt_12_july_2020_0.py
+#
+#  Sincerely, Vic
+#
+# Make changes to your submission
+# Feedback
+# Grade	сдано!
+# Graded on	Tuesday, 14 July 2020, 8:09 AM
+# Graded by	Picture of Алексей БаранцевАлексей Баранцев
+# Feedback comments
+# Исправлено.
+#
+# Previous attempts
+# Attempt 1: Monday, 13 July 2020, 7:59 AM
+# Submission status	Submitted for grading
+# Online text
+# View summary
+# Good evening, boss.
+#
+# Find herein hw11: https://github.com/LupusLudensEst/SeleniumWD_Barancev_dt_18_june_2020/blob/master/homework11_dt_12_july_2020_0.py
+#
+#  Sincerely, Vic
+#
+# Feedback
+# Grade	надо доработать
+# Graded on	Monday, 13 July 2020, 8:22 AM
+# Graded by	Picture of Алексей БаранцевАлексей Баранцев
+# Feedback comments
+# View summary
+# Необходимо также учесть следующий пункт задания:
+# 1) регистрация новой учётной записи с достаточно уникальным адресом электронной почты
+# (чтобы не конфликтовало с ранее созданными пользователями, в том числе при предыдущих запусках того же самого сценария).
+
 import pytest
 from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
