@@ -108,12 +108,12 @@ def test_litecart(driver):
     # Upload a pic by clicking on Choose File button
     product_image = os.path.abspath(os.path.join(os.path.dirname(os.path.realpath(__file__)),'Guessed_baby_face.png'))
     driver.find_element(By.NAME, "new_images[]").send_keys(product_image)
-    print(f'\nProduct image: {product_image}')
+    print(f'\nPath to product image: {product_image}')
 
-    # # Set data Date Valid From
+    # # Set data Date Valid From and Valid To
     date_from = datetime.date.today()
     driver.find_element(By.NAME, "date_valid_from").send_keys(date_from.strftime('%m-%d-%Y'))
-    date_to = datetime.date.today() + datetime.timedelta(days=15)
+    date_to = datetime.date.today() + datetime.timedelta(days=90)
     driver.find_element(By.NAME, "date_valid_to").send_keys(date_to.strftime('%m-%d-%Y'))
 
     # Click on Information folder
@@ -180,6 +180,6 @@ def test_litecart(driver):
 
     # Verify Abirvalg as a new good is here in Catalog
     xpath_avirvalg = './/a[contains(.,\'' + "Abirvalg" + '\')]'
-    print(xpath_avirvalg)
+    print(f'Good is here: {xpath_avirvalg}')
     catalog = WebDriverWait(driver, 20).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "form[name=catalog_form")))[0]
     catalog.find_element(By.XPATH, xpath_avirvalg).click()
