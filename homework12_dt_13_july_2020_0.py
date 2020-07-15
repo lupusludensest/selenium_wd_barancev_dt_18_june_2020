@@ -110,7 +110,7 @@ def test_litecart(driver):
     driver.find_element(By.NAME, "new_images[]").send_keys(product_image)
     print(f'\nPath to product image: {product_image}')
 
-    # # Set data Date Valid From and Valid To
+    # # Set data Date Valid From and Date Valid To
     date_from = datetime.date.today()
     driver.find_element(By.NAME, "date_valid_from").send_keys(date_from.strftime('%m-%d-%Y'))
     date_to = datetime.date.today() + datetime.timedelta(days=90)
