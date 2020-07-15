@@ -50,6 +50,7 @@ def test_litecart(driver):
 
     # Click Login button
     driver.find_element(By.NAME,"login").click()
+    sleep(2)
 
     # Click Catalog button
     driver.find_element(By.XPATH, "//span[contains(text(), 'Catalog')]").click()
@@ -67,7 +68,6 @@ def test_litecart(driver):
     # Click on Enabled radio button
     if not driver.find_element(By.NAME, "status").is_selected():
         driver.find_element(By.NAME, "status").click()
-    sleep(2)
 
     # Fill out Name field
     driver.find_element(By.NAME, "name[en]").clear()
