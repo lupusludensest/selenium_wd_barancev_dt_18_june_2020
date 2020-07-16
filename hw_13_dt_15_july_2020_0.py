@@ -62,10 +62,9 @@ def test_litecart(driver):
     wait = WebDriverWait(driver, 15)
     # Click on three first items
     for x in range(0, 3):
-        driver.get("http://localhost/litecart/")
+        driver.get("https://litecart.stqa.ru/en/") # http://localhost/litecart/
         WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "img.image"))).click()
         WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.NAME, "add_cart_product"))).click()
-        driver.switchTo().alert().accept()
         # goods_in_cart = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#cart-wrapper .quantity"))).text
         # print(f'Goods in the cart : {goods_in_cart}')
 

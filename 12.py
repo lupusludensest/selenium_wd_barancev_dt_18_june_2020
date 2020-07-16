@@ -24,14 +24,14 @@ def test_cart(driver):
     wait = WebDriverWait(driver, 15)
     for x in range(0, 3):
         # Go to the 1st product page
-        driver.get("http://localhost/litecart/")
+        driver.get("https://litecart.stqa.ru/en/") # http://localhost/litecart/
         wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR , ".product")))[0].click()
 
         # Add the product to the cart
         box_product = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR , "#box-product")))[0]
         cart_item_quantity_element = driver.find_element(By.CSS_SELECTOR,"#cart-wrapper .quantity")
         cart_item_quantity = int(cart_item_quantity_element.text)
-        print(cart_item_quantity)
+        print(f'\nItem #: {cart_item_quantity + 1}')
         selectors = box_product.find_elements(By.CSS_SELECTOR , "select[name='options[Size]']")
         if (len(selectors) > 0):
             Select(selectors[0]).select_by_index(1)
@@ -40,6 +40,6 @@ def test_cart(driver):
         # Waiting new quantity counter in the cart
         while int(cart_item_quantity_element.text) <= cart_item_quantity:
             time.sleep(1)
-        print(int(cart_item_quantity_element.text))
+        print(f'Items in the cart: {int(cart_item_quantity_element.text)}\n')
 
     time.sleep(10)
