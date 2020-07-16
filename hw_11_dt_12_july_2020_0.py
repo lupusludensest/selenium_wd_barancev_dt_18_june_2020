@@ -113,7 +113,8 @@ def test_litecart(driver):
     # Generators of password and name
     password = str(randint(999, 9999))
     name = 'name' + password
-    print(f'\nName: {name} and password: {password}')
+    email = (name + '@sample.com')
+    print(f'\nName: {name}, password: {password} and email: {email}')
 
     # Click on button New customers click here
     driver.find_element(By.XPATH, "//a[contains(text(),'New customers click here')]").click()
@@ -181,7 +182,7 @@ def test_litecart(driver):
 
     # Input Email: * into the field Email
     EMAIL.clear()
-    EMAIL.send_keys(name + '@sample.com')
+    EMAIL.send_keys(email)
 
     # Input Phone: 4074354433 into the field Phone
     PHONE.clear()
