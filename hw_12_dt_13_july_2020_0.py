@@ -85,11 +85,11 @@ def test_litecart(driver):
     driver.find_element(By.NAME, "username").send_keys("admin")
 
     # Enter password: admin
-    driver.find_element(By.NAME,"password").clear()
-    driver.find_element(By.NAME,"password").send_keys("admin")
+    driver.find_element(By.NAME, "password").clear()
+    driver.find_element(By.NAME, "password").send_keys("admin")
 
     # Click Login button
-    driver.find_element(By.NAME,"login").click()
+    driver.find_element(By.NAME, "login").click()
     sleep(2)
 
     # Click Catalog button
