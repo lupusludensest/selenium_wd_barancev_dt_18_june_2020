@@ -22,15 +22,12 @@
 # Last modified	-
 
 import pytest
-from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-from time import sleep
-from selenium.webdriver.support.ui import Select
-from random import randint
-import os
-import datetime
+from selenium.webdriver.support.select import Select
+import time
 
 @pytest.fixture
 def driver(request):
@@ -57,14 +54,36 @@ def driver(request):
     request.addfinalizer(wd.quit)
     return wd
 
-    # Log in to URL: http://localhost/litecart/en/
-def test_litecart(driver):
+def test_cart(driver):
     wait = WebDriverWait(driver, 15)
-    # Click on three first items
-    for x in range(0, 3):
+    items_to_add = 3
+    for item in range(items_to_add):
+        # Go to the 1st product page
         driver.get("https://litecart.stqa.ru/en/") # http://localhost/litecart/
-        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.CSS_SELECTOR, "img.image"))).click()
-        WebDriverWait(driver, 20).until(EC.element_to_be_clickable((By.NAME, "add_cart_product"))).click()
-        # goods_in_cart = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.CSS_SELECTOR, "#cart-wrapper .quantity"))).text
-        # print(f'Goods in the cart : {goods_in_cart}')
+        driver.maximize_window()
+        # Click on the first item in the list
+        wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".product")))[0].click()
+        # Add the product to the cart
+        box_product = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#box-product")))[0]
+        # Verify the quantity of items in the cart counter
+        cart_item_quantity_element = driver.find_element(By.CSS_SELECTOR,"#cart-wrapper .quantity")
+        cart_item_quantity = int(cart_item_quantity_element.text)
+        print(f'\nItem #: {cart_item_quantity + 1}; index: {cart_item_quantity_element.text}')
+        # If item has a select option
+        selectors = box_product.find_elements(By.CSS_SELECTOR, "select[name='options[Size]']")
+        if (len(selectors) > 0):
+            Select(selectors[0]).select_by_index(1)
+        # Click on Add To Cart button
+        box_product.find_element(By.CSS_SELECTOR,"button[name=add_cart_product]").click()
+        # Waiting new quantity counter in the cart
+        while int(cart_item_quantity_element.text) <= cart_item_quantity:
+            time.sleep(1)
+        print(f'Items in the cart: {int(cart_item_quantity_element.text)}\n')
+    time.sleep(4)
 
+    # Delete items from the cart
+    driver.get("https://litecart.stqa.ru/en/checkout") # http://localhost/litecart/en/checkout
+    time.sleep(2)
+    for item in range(items_to_add):
+        driver.find_element(By.NAME, 'remove_cart_item').click()
+        time.sleep(2)
