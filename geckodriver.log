@@ -911,3 +911,57 @@ console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Err
 ###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
 
 [2020-07-14T00:59:31Z ERROR xulstore::persist] removeDocument error: unavailable
+1595124015572	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofilel93D76"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1595124018543	Marionette	INFO	Listening on port 57471
+1595124018770	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595124019579	Marionette	INFO	Stopped listening on port 57471
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+[2020-07-19T02:00:20Z ERROR xulstore::persist] removeDocument error: unavailable
+1595124067057	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofileS1KfRh"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1595124069273	Marionette	INFO	Listening on port 57555
+1595124069737	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595124070477	Marionette	INFO	Stopped listening on port 57555
+[2020-07-19T02:01:11Z ERROR xulstore::persist] removeDocument error: unavailable
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+1595124243414	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofileB9Hlmj"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1595124245677	Marionette	INFO	Listening on port 58939
+1595124246054	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595124246745	Marionette	INFO	Stopped listening on port 58939
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+[2020-07-19T02:04:07Z ERROR xulstore::persist] removeDocument error: unavailable
+1595124383593	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofileJ6yVFC"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1595124385748	Marionette	INFO	Listening on port 59125
+1595124386249	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595124388925	Marionette	INFO	Stopped listening on port 59125
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+[2020-07-19T02:06:29Z ERROR xulstore::persist] removeDocument error: unavailable
+1595124462965	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Firefox Nightly\\firefox.exe" "-marionette" "-foreground" "-no-remote" "-profile" "C:\\Users\\rapid\\AppData\\Local\\Temp\\rust_mozprofilelmh2jV"
+console.error: SearchCache: "_readCacheFile: Error reading cache file:" (new Error("", "(unknown module)"))
+1595124465263	Marionette	INFO	Listening on port 59223
+1595124465640	Marionette	WARN	TLS certificate errors will be ignored for this session
+1595124468379	Marionette	INFO	Stopped listening on port 59223
+
+###!!! [Child][RunMessage] Error: Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][MessageChannel::SendAndWait] Error: Channel error: cannot send/recv
+
+[2020-07-19T02:07:48Z ERROR xulstore::persist] removeDocument error: unavailable

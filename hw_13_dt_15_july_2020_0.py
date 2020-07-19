@@ -17,9 +17,20 @@
 #
 # Submission status
 # Attempt number	This is attempt 1.
-# Submission status	No attempt
+# Submission status	Submitted for grading
 # Grading status	Not graded
-# Last modified	-
+# Last modified	Thursday, 16 July 2020, 11:44 PM
+# Online text
+# View summary
+# Hello, Alexey.
+#
+# Find here hw13: https://github.com/LupusLudensEst/SeleniumWD_Barancev_dt_18_june_2020/blob/master/hw_13_dt_15_july_2020_0.py
+#
+# Confess again that at the moment I am not producing the code "from the head"-as you mentioned before with Alexander in Skype, I just refactor and combine what I have on this subject.
+#
+# So, can I ask you advise me your course to rise my Python coding skills?
+#
+# Sincerely, Vic
 
 import pytest
 from selenium.webdriver.support.wait import WebDriverWait

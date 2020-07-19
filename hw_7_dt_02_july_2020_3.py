@@ -1,4 +1,4 @@
-[x] Задание 7. Сделайте сценарий, проходящий по всем разделам админки
+# [x] Задание 7. Сделайте сценарий, проходящий по всем разделам админки
 # Сделайте сценарий, который выполняет следующие действия в учебном приложении litecart.
 #
 # 1) входит в панель администратора http://localhost/litecart/admin
@@ -33,34 +33,52 @@ from selenium import webdriver
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
-
+import time
+from time import sleep
 
 @pytest.fixture
-def driver(request):
-    driver = webdriver.Firefox()
+def wd(request):
+    driver = webdriver.Chrome()
     request.addfinalizer(driver.quit)
     return driver
 
+# init driver
+driver = webdriver.Chrome()
+driver.maximize_window()
 
-def test_l07(driver):
-    driver.get("http://localhost/litecart/admin/")
-    driver.find_element_by_name("username").send_keys("admin")
-    driver.find_element_by_name("password").send_keys("admin")
-    driver.find_element_by_name("login").click()
-    wait = WebDriverWait(driver, 10)
+# open the url
+driver.get('http://localhost/litecart/admin/')
+sleep(2)
 
-    menu_number = len(driver.find_elements_by_css_selector("ul#box-apps-menu > li"))
+#Input into the field "Username"
+search = driver.find_element(By.NAME, "username")
+search.clear()
+search.send_keys('admin')
+sleep(1)
 
-    while menu_number:
-        menu_number -= 1
-        menu_items = driver.find_elements_by_css_selector("ul#box-apps-menu > li")
-        menu_items[menu_number].click()
-        element = wait.until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
+#Input into the field "Password"
+search = driver.find_element(By.NAME, "password")
+search.clear()
+search.send_keys('admin')
+sleep(1)
 
+#Click on button "Login"
+driver.find_element(By.NAME, 'login').click()
+sleep(4)
 
-        submenu_number = len(driver.find_elements_by_css_selector(".docs>li>a"))
-        while submenu_number:
-            submenu_number -= 1
-            submenu_items = driver.find_elements_by_css_selector(".docs>li>a")
-            submenu_items[submenu_number].click()
-            element = wait.until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
+menu_number = len(driver.find_elements_by_css_selector("ul#box-apps-menu > li"))
+
+while menu_number:
+    menu_number -= 1
+    menu_items = driver.find_elements_by_css_selector("ul#box-apps-menu > li")
+    menu_items[menu_number].click()
+    element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
+
+    submenu_number = len(driver.find_elements_by_css_selector(".docs>li>a"))
+    while submenu_number:
+        submenu_number -= 1
+        submenu_items = driver.find_elements_by_css_selector(".docs>li>a")
+        submenu_items[submenu_number].click()
+        element = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, "h1")))
+
+driver.quit()
