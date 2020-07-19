@@ -95,7 +95,7 @@ def test_countries(driver):
 # List of external URLs
     new_window_links = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR,"#content form a[target=_blank]")))
 
-# Define Selenium name for current window and fot previous windows
+# Define Selenium name for current window and for previous windows
     main_window = driver.current_window_handle
     previous_windows = driver.window_handles
 
