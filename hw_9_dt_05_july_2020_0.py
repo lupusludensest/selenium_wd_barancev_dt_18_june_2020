@@ -1,5 +1,4 @@
-# [x]
-# Задание 9. Проверить сортировку стран и геозон в админке Сделайте
+# [x] Задание 9. Проверить сортировку стран и геозон в админке Сделайте
 # сценарии, которые проверяют сортировку стран и геозон(штатов)
 # в учебном приложении litecart.
 #
@@ -79,27 +78,52 @@ sleep(1)
 driver.find_element(By.NAME, 'login').click()
 sleep(2)
 
-# Creating lists:
-cities_names = []
-cities_with_names_zones =[]
-country_zones = []
-country_items = driver.find_elements(By.XPATH, "//tr[contains(@class,'row')]//a[not(@title='Edit')]")
-for country_item in country_items:
-    cities_names.append(country_item.text)
+rows=driver.find_elements(By.XPATH, ".//*[@id='table-zones']//tr [not(contains (@class, 'header'))]")
+print ('Length of something: '+str(len(rows)) + '\n')
+column_z = driver.find_elements(By.TAG_NAME, "td")
 
-print(str(cities_names.append(country_item.text)))
-print(len(country_items))
+# Extracting data from coulumn #3(index 2)
+zones_name = []
+for elements in rows:
+    column_z = elements.find_elements(By.TAG_NAME, "td")
+    zones_name.append(column_z[2].text)
+print(f'Column Z: {column_z[2].text}\n')
+# It deletes and returns the last element from list with index i list.pop([i]), becuse it is the filter field
+# by default deleted the last element
+# Nothing to delete from empty list
+# zones_name.pop()
+sorted_zones_list = sorted(zones_name)
+print(f'Zones name: {zones_name}\n')
+print(f'Sorted zone names: {sorted_zones_list}\n')
+assert zones_name == sorted_zones_list
+print(f'Text of zones name: {str(zones_name.append(column_z[2].text))}\n')
 
-cities_names_sorted = sorted(cities_names)
-assert cities_names_sorted == cities_names
+# Get into everyone from the countries and verify that zones are in the alphabet order
+driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones")
+# Get into every from the countries
+geozones_list_text = []
+# Set of links for countries with the zones
+geo_links = driver.find_elements_by_xpath(
+    ".//*[@id='content']/form/table/tbody/tr[@class='row']/td [not(contains (@style,'text'))]/a")
+for link in geo_links:
+    print(f'Link get attribute: {link.get_attribute("href")}\n')
+    geozones_list_text.append(link.get_attribute('href'))
+print(f'Length geo links above: {len(geo_links)}\n')
+# Append links into special array to prevent Selenium from
+# errors like  this python Message: stale element reference: element is not attached to the page document
 
-country_item_text = country_item.find_element(By.XPATH, ".//../../td[6]").text
-for country_item in country_items:
-    country_cities_zones = int(country_item_text)
-print(country_cities_zones, country_item_text)
-if country_cities_zones > 0:
-    cities_with_names_zones.append(country_item_text)
-print(str(cities_with_names_zones))
+# Run through the lists in the opened pages
+for i in range(len(geozones_list_text)):
+    geozones_list = []  # Nullifying the list
+    driver.get(geozones_list_text[i])
+    geo_zones_in_selects = driver.find_elements_by_xpath(
+        ".//*[@id='table-zones']/tbody/tr/td/select[starts-with(@name,'zones[') and not(contains (@aria-hidden,'true'))]/option[@selected='selected']")
+    for geozones in geo_zones_in_selects:
+        geozones_list.append(geozones.text)
 
+    sorted_geozones_list = sorted(geozones_list)
+    print(f'Geo zones list: {geozones_list}\n')
+    assert geozones_list == sorted_geozones_list
+print(f'Length geo zones in select: {len(geo_zones_in_selects)}\n')
 
 driver.quit()
