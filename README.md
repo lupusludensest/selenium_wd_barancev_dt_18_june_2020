@@ -517,22 +517,39 @@ __________________________________________________________________
 Уложите созданный файл, содержащий сценарий, в ранее созданный репозиторий. В качестве ответа на задание отправьте ссылку на свой репозиторий и указание, какой именно файл содержит нужный сценарий.
 
 Submission status
-Attempt number	This is attempt 1.
-Submission status	Submitted for grading
+Attempt number	This is attempt 2.
+Submission status	Reopened
 Grading status	Not graded
-Last modified	Thursday, 16 July 2020, 11:44 PM
+Last modified	Sunday, 19 July 2020, 6:44 AM
+This will copy the contents of your previous submission to a new submission for you to work on.
+This will create a new blank submission for you to work on.
+Feedback
+Grade	надо доработать
+Graded on	Sunday, 19 July 2020, 6:44 AM
+Graded by	MeViacheslav Gurov
+Previous attempts
+Attempt 1: Thursday, 16 July 2020, 11:44 PM
+Submission status	Submitted for grading
 Online text	
-View summary
+View full(75 words)
 Hello, Alexey.
 
-Find here hw13: https://github.com/LupusLudensEst/SeleniumWD_Barancev_dt_18_june_2020/blob/master/hw_13_dt_15_july_2020_0.py
+Find here hw13: https://github.com/LupusLudensEst/SeleniumWD_Barancev_dt_18_june_2020/blob/master/hw_13_dt_15_july_2020_0...
 
-Confess again that at the moment I am not producing the code "from the head"-as you mentioned before with Alexander in Skype, 
-I just refactor and combine what I have on this subject.
+Feedback
+Grade	надо доработать
+Graded on	Sunday, 19 July 2020, 6:44 AM
+Graded by	Picture of Алексей БаранцевАлексей Баранцев
+Feedback comments	
+View summary
+1) Во-первых, желательно все "слипы" (time.sleep) заменить на ожидания, в соотвествии с изучаемой темой.
 
-So, can I ask you advise me your course to rise my Python coding skills?
+2) Вот этот код (while int(cart_item_quantity_element.text) <=cart_item_quantity) не будет работать правильно, так как эти значения вычислены ранее и не меняются. В данном случае замените этот код на ожидание (в условии которого ожидайте увеличения количества товара в корзине).
 
-Sincerely, Vic
+3) Точно так же, при удалении товара из корзины, кликайте по кнопке удаления товара (
+подсказка: можно сначала кликнуть по любому товару из карусели, она остановится и 
+можно будет кликнуть по кнопке удаления товара, она не будет обновляться). 
+После клика по кнопке удаления, ожидайте, пока обновится таблица с товарами.
 __________________________________________________________________
 [x] Задание 14. Проверьте, что ссылки открываются в новом окне
 Сделайте сценарий, который проверяет, что ссылки на странице редактирования страны открываются в новом окне.

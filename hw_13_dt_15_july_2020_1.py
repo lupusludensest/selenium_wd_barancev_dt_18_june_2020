@@ -58,8 +58,8 @@ from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
-import time
 
+# Different drivers
 @pytest.fixture
 def driver(request):
     wd = webdriver.Chrome()
@@ -85,36 +85,50 @@ def driver(request):
     request.addfinalizer(wd.quit)
     return wd
 
+# Go to the product page
 def test_cart(driver):
-    wait = WebDriverWait(driver, 15)
-    items_to_add = 3
-    for item in range(items_to_add):
-        # Go to the 1st product page
-        driver.get("https://litecart.stqa.ru/en/") # http://localhost/litecart/
-        driver.maximize_window()
-        # Click on the first item in the list
-        wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, ".product")))[0].click()
-        # Add the product to the cart
+    driver.get("https://litecart.stqa.ru/en/")
+    driver.maximize_window()
+
+# Quantity of the items defined
+    add_to_cart(driver, 3)
+    del_from_cart(driver)
+
+# Add to cart
+def add_to_cart(driver, count = 1):
+    wait = WebDriverWait(driver, 10)
+    for i in range(count):
+        # Click on first item in the list
+        aa = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "#box-most-popular a")))
+        aa.click()
+        # In case item has a select option
         box_product = wait.until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "#box-product")))[0]
-        # Verify the quantity of items in the cart counter
-        cart_item_quantity_element = driver.find_element(By.CSS_SELECTOR,"#cart-wrapper .quantity")
-        cart_item_quantity = int(cart_item_quantity_element.text)
-        print(f'\nItem #: {cart_item_quantity + 1}; index: {cart_item_quantity_element.text}')
-        # If item has a select option
         selectors = box_product.find_elements(By.CSS_SELECTOR, "select[name='options[Size]']")
         if (len(selectors) > 0):
             Select(selectors[0]).select_by_index(1)
         # Click on Add To Cart button
-        box_product.find_element(By.CSS_SELECTOR,"button[name=add_cart_product]").click()
+        bb = wait.until(EC.element_to_be_clickable((By.NAME, "add_cart_product")))
+        bb.click()
         # Waiting new quantity counter in the cart
-        while int(cart_item_quantity_element.text) <= cart_item_quantity:
-            time.sleep(1)
-        print(f'Items in the cart: {int(cart_item_quantity_element.text)}\n')
-    time.sleep(4)
+        counter = int(wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "span.quantity"))).text)
+        WebDriverWait(driver, 10).until(lambda s: int(s.find_element(By.CSS_SELECTOR, "span.quantity").text) == counter + 1)
+        print(f'\n        Items in the cart: {counter + 1}')
+        # Step back in the browser hystory
+        driver.back()
 
-    # Delete items from the cart
-    driver.get("https://litecart.stqa.ru/en/checkout") # http://localhost/litecart/en/checkout
-    time.sleep(2)
-    for item in range(items_to_add):
-        driver.find_element(By.NAME, 'remove_cart_item').click()
-        time.sleep(2)
+# Delete from cart
+def del_from_cart(driver):
+    wait = WebDriverWait(driver, 10)
+    # Click on checkout
+    cc = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "div#cart a.link")))
+    cc.click()
+    # Iterate delete till table with items is not empthy
+    counter = len(wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "table.dataTable tr"))).text)
+    while counter > 0:
+        dd = wait.until(EC.element_to_be_clickable((By.NAME, "remove_cart_item")))
+        dd.click()
+        WebDriverWait(driver, 10).until(lambda s: len(s.find_elements(By.CSS_SELECTOR, "table.dataTable tr")) < counter)
+        counter = len(driver.find_elements(By.CSS_SELECTOR, "table.dataTable tr"))
+        print(f'\nRows in the table: {counter}')
+    # Step back in the browser hystory
+    driver.back()

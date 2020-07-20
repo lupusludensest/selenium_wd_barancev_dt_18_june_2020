@@ -1,4 +1,4 @@
-[x] Задание 7. Сделайте сценарий, проходящий по всем разделам админки
+# [x] Задание 7. Сделайте сценарий, проходящий по всем разделам админки
 # Сделайте сценарий, который выполняет следующие действия в учебном приложении litecart.
 #
 # 1) входит в панель администратора http://localhost/litecart/admin
@@ -62,9 +62,9 @@ def driver(request):
 
 def test_example(driver):
     driver.get("http://localhost/litecart/admin/")
-    driver.find_element_by_name("username").send_keys("admin")
-    driver.find_element_by_name("password").send_keys("admin")
-    driver.find_element_by_name("login").click()
+    driver.find_element(By.NAME, "username").send_keys("admin")
+    driver.find_element(By.NAME, "password").send_keys("admin")
+    driver.find_element(By.NAME, "login").click()
     # WebDriverWait(driver, 10).until(EC.title_is("My Store"))
     # time.sleep(5)
     # wait list1 > 0, click item, wait list2 > 0, click item
