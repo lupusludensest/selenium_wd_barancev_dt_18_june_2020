@@ -33,6 +33,7 @@ driver = webdriver.Remote(
     command_executor=url_login_password,
     desired_capabilities=desired_cap)
 driver.get("https://www.google.com")
+driver.maximize_window()
 if not "Google" in driver.title:
     raise Exception("Unable to load google page!")
 elem = driver.find_element(By.NAME, "q")
