@@ -628,7 +628,44 @@ __________________________________________________________________
 
 Submission status
 Attempt number	This is attempt 1.
-Submission status	No attempt
+Submission status	Submitted for grading
+Grading status	Graded
+Last modified	Saturday, 25 July 2020, 7:19 PM
+Online text	
+View summary
+Good evening, boss.
+
+Find here hw#17: https://github.com/LupusLudensEst/SeleniumWD_Barancev_dt_18_june_2020/blob/master/hw_17_dt_25_july_2020_1.py
+Repeatedly asking you: BC I am not writting the code "from the head" at the moment but refactoring what I got-recommend me, please, one of your courses on Python. I am pretty much sure you see ьу through.
+
+Sincerely, Vic
+
+Make changes to your submission
+Feedback
+Grade	сдано!
+Graded on	Sunday, 26 July 2020, 9:44 AM
+Graded by	Picture of Алексей БаранцевАлексей Баранцев
+Feedback comments	
+Верно. Вы можете присмотреться к курсу https://software-testing.ru/edu/1-schedule/233-python-for-testers
+__________________________________________________________________
+[+] Задание 18. Перенаправьте трафик в прокси-сервер
+Установите какой-нибудь прокси-сервер, который умеет протоколировать запросы и ответы.
+
+На выбор прокси-сервера для разных платформ:
+http://www.telerik.com/fiddler (Windows)
+https://www.charlesproxy.com/ (Windows, Linux, MacOS, платный, но есть пробная версия)
+https://mitmproxy.org/ (Linux, MacOS)
+https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project (Windows, LInux, MacOS)
+
+Инициализируйте драйвер так, чтобы запросы из браузера отправлялись через этот прокси-сервер, убедитесь, что они там видны.
+
+Если всё получилось -- можете самостоятельно отметить задание как выполненное -- перейти на главную страницу курса и поставить галочку напротив этого задания.
+
+Если возникли затруднения -- задавайте вопросы в скайп-чат.
+
+Submission status
+Attempt number	This is attempt 1.
+Submission status	This assignment does not require you to submit anything online
 Grading status	Not graded
 Last modified	-
 __________________________________________________________________

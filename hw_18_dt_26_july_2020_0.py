@@ -1,39 +1,24 @@
-# [x] Задание 17. Проверьте отсутствие сообщений в логе браузера
-# Сделайте сценарий, который проверяет, не появляются ли в логе браузера сообщения при открытии страниц в учебном приложении, а именно -- страниц товаров в каталоге в административной панели.
+# [+] Задание 18. Перенаправьте трафик в прокси-сервер
+# Установите какой-нибудь прокси-сервер, который умеет протоколировать запросы и ответы.
 #
-# Сценарий должен состоять из следующих частей:
+# На выбор прокси-сервера для разных платформ:
+# http://www.telerik.com/fiddler (Windows)
+# https://www.charlesproxy.com/ (Windows, Linux, MacOS, платный, но есть пробная версия)
+# https://mitmproxy.org/ (Linux, MacOS)
+# https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project (Windows, LInux, MacOS)
 #
-# 1) зайти в админку
-# 2) открыть каталог, категорию, которая содержит товары (страница http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1)
-# 3) последовательно открывать страницы товаров и проверять, не появляются ли в логе браузера сообщения (любого уровня)
+# Инициализируйте драйвер так, чтобы запросы из браузера отправлялись через этот прокси-сервер, убедитесь, что они там видны.
 #
-# Можно оформить сценарий либо как тест, либо как отдельный исполняемый файл.
+# Если всё получилось -- можете самостоятельно отметить задание как выполненное -- перейти на главную страницу курса и поставить галочку напротив этого задания.
 #
-# -----
-#
-# Уложите созданный файл, содержащий сценарий, в ранее созданный репозиторий. В качестве ответа на задание отправьте ссылку на свой репозиторий и указание, какой именно файл содержит нужный сценарий.
+# Если возникли затруднения -- задавайте вопросы в скайп-чат.
 #
 # Submission status
 # Attempt number	This is attempt 1.
-# Submission status	Submitted for grading
-# Grading status	Graded
-# Last modified	Saturday, 25 July 2020, 7:19 PM
-# Online text
-# View summary
-# Good evening, boss.
-#
-# Find here hw#17: https://github.com/LupusLudensEst/SeleniumWD_Barancev_dt_18_june_2020/blob/master/hw_17_dt_25_july_2020_1.py
-# Repeatedly asking you: BC I am not writting the code "from the head" at the moment but refactoring what I got-recommend me, please, one of your courses on Python. I am pretty much sure you see ьу through.
-#
-# Sincerely, Vic
-#
-# Make changes to your submission
-# Feedback
-# Grade	сдано!
-# Graded on	Sunday, 26 July 2020, 9:44 AM
-# Graded by	Picture of Алексей БаранцевАлексей Баранцев
-# Feedback comments
-# Верно. Вы можете присмотреться к курсу https://software-testing.ru/edu/1-schedule/233-python-for-testers
+# Submission status	This assignment does not require you to submit anything online
+# Grading status	Not graded
+# Last modified	-
+
 
 import pytest
 from selenium import webdriver
@@ -45,7 +30,8 @@ import time
 @pytest.fixture
 def driver(request):
     # wd = webdriver.Chrome()
-    wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["--start-fullscreen"]}})
+    # wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["--start-fullscreen"]}})
+    wd = webdriver.Chrome(desired_capabilities={"proxy": {"proxyType": "MANUAL", "httpProxy": "localhost:8888"}})
     # wd = webdriver.Firefox()
     # options = webdriver.FirefoxOptions()
     # options.binary_location = "C:\\Program Files\\Firefox Nightly\\firefox.exe"
@@ -93,9 +79,9 @@ def test_litecart(driver):
         #present_error(driver) https://www.geeksforgeeks.org/get_log-driver-method-selenium-python/
         browser_log = driver.get_log("browser")
         for l in browser_log:
-            print(f'Log in browser log: {l}')
-        if (len(browser_log)):
-            assert(False),'something in the browser log'
+            print(f'\nBrowser log: {l}')
+        if (len(browser_log) != 0):
+            assert(True),'something in the browser log'
         driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1")
         links = wait.until(EC.presence_of_all_elements_located(
             (By.XPATH, ".//*[@id='content']/form/table/tbody/tr/td[./img and ./a]/a")))
