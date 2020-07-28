@@ -32,9 +32,9 @@ def driver(request):
     #wd = webdriver.Firefox()
     prox = Proxy()
     prox.proxy_type = ProxyType.MANUAL
-    prox.http_proxy = "127.0.0.1:8888"
+    prox.http_proxy = "127.0.0.1:8888" # Will work with "localhost:8888"
     # prox.socks_proxy = "127.0.0.1:8888" # Does not work with this
-    prox.ssl_proxy = "127.0.0.1:8888"
+    prox.ssl_proxy = "127.0.0.1:8888" # Will work with "localhost:8888"
 
     capabilities = webdriver.DesiredCapabilities.CHROME
     prox.add_to_capabilities(capabilities)
