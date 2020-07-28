@@ -25,12 +25,25 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import time
+from selenium.webdriver.common.proxy import Proxy, ProxyType
 
 @pytest.fixture
 def driver(request):
     # wd = webdriver.Chrome()
     # wd = webdriver.Chrome(desired_capabilities={"chromeOptions": {"args": ["--start-fullscreen"]}})
-    wd = webdriver.Chrome(desired_capabilities={"proxy": {"proxyType": "MANUAL", "httpProxy": "localhost:8888"}})
+    # wd = webdriver.Chrome(desired_capabilities={"proxy": {"proxyType": "MANUAL", "httpProxy": "localhost:8888"}})
+
+    prox = Proxy()
+    prox.proxy_type = ProxyType.MANUAL
+    prox.http_proxy = "127.0.0.1:8888"
+    # prox.socks_proxy = "127.0.0.1:8888" # Does not work with this
+    prox.ssl_proxy = "127.0.0.1:8888"
+
+    capabilities = webdriver.DesiredCapabilities.CHROME
+    prox.add_to_capabilities(capabilities)
+
+    wd = webdriver.Chrome(desired_capabilities=capabilities)
+
     # wd = webdriver.Firefox()
     # options = webdriver.FirefoxOptions()
     # options.binary_location = "C:\\Program Files\\Firefox Nightly\\firefox.exe"
@@ -79,7 +92,7 @@ def test_litecart(driver):
         browser_log = driver.get_log("browser")
         for l in browser_log:
             print(f'\nBrowser log: {l}')
-        if (len(browser_log) == 0):
+        if (len(browser_log) != 0):
             assert(True),'something in the browser log'
         driver.get("http://localhost/litecart/admin/?app=catalog&doc=catalog&category_id=1")
         links = wait.until(EC.presence_of_all_elements_located(

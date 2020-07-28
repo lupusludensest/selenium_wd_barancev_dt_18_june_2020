@@ -70,7 +70,7 @@ def test_example(driver):
     sleep(2)
     driver.find_element(By.NAME, "q").send_keys("webdriver")
     sleep(2)
-    driver.find_element(By.NAME, "btnK").click() # Correct is: "btnK"
+    driver.find_element(By.NAME, "_btnK").click() # Correct is: "btnK"
     WebDriverWait(driver, 10).until(EC.title_is("webdriver - Google Search"))
     print("Browser log: " + str(driver.get_log("browser")))
     print("Driver log: " + str(driver.get_log("driver")))
