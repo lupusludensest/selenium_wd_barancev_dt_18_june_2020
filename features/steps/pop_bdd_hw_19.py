@@ -14,7 +14,6 @@ def click_first_product(context, times):
     """
     context.app.main_page.click_first_product(times)
 
-
 @then("Click on checkout button and delete all items from the bin")
 def del_from_cart(context):
     """

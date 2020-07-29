@@ -27,6 +27,7 @@ class MainPage(Page):
             # Step back in the browser hystory
             self.driver.back()
 
+    # Delete from cart
     def del_from_cart(self):
         wait = WebDriverWait(self.driver, 10)
         # Click on checkout
