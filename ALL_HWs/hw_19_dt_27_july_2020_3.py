@@ -9,9 +9,39 @@
 #
 # Submission status
 # Attempt number	This is attempt 1.
-# Submission status	No attempt
-# Grading status	Not graded
-# Last modified	-
+# Submission status	Submitted for grading
+# Grading status	Graded
+# Last modified	Tuesday, 28 July 2020, 11:25 PM
+# Online text
+# View summary
+# Good evening, boss.
+#
+# Find herein hw_19: https://github.com/LupusLudensEst/SeleniumWD_Barancev_dt_18_june_2020/blob/master/features/tests/pop_bdd_hw_19.feature
+# The layers of architecture:
+#
+# 1. pages: base_page.py (methods and login), main_page(execution of the add/delete items to bin)-correlates with this very homework;
+#
+# 2. app: application (connecting class from low level to high level layers);
+#
+# 3. features: tests (. feature=Gerking files=scenarios of high level), steps (.py=subdue of Gerking files for transmitting commands to lower level);
+#
+# 5. environment.py;
+#
+# 6. See folder READ_ME: with manual for Allure reporting system and attached screenshot.
+#
+# Sincerely, Vic
+#
+# to_hw19_dt_28_july_2020
+#
+#
+#
+# Make changes to your submission
+# Feedback
+# Grade	сдано!
+# Graded on	Wednesday, 29 July 2020, 2:20 AM
+# Graded by	Picture of Алексей БаранцевАлексей Баранцев
+# Feedback comments
+# Верно.
 
 import pytest
 from selenium.webdriver.support.wait import WebDriverWait
