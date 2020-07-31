@@ -110,7 +110,7 @@ def test_litecart(driver):
     driver.get("http://localhost/litecart/en/")
     driver.maximize_window()
 
-    # Generators of password and name
+    # Generators of password, name and email
     password = str(randint(999, 9999))
     name = 'name' + password
     email = (name + '@sample.com')
