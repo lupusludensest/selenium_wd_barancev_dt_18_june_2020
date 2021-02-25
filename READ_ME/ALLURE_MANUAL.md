@@ -7,13 +7,9 @@ $ pip uninstall behave
 $ pip3 install behave
 
 Запустить отчёт/Run report:
-$ behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/tests/hw5.1_color_selection_loop.feature
 $ behave -f allure_behave.formatter:AllureFormatter -o test_results/ features/
 Загрузить отчёт/Upload report to browser:
 $ allure serve test_results/
-
-
-
 
 Если проблема: behave: error: format=allure_behave.formatter:AllureFormatter is unknown.
 $ pip install --upgrade pip
@@ -57,3 +53,18 @@ Starting web server...
 Server started at <http://192.168.56.1:53498/>. Press <Ctrl+C> to exit
 
 http://192.168.56.1:53498/index.html
+
+##########
+1. Just provoke Jenkins;
+2. Create requirements.txt: pip freeze > requirements.txt
+3. Define path to modul: which python3
+
+##########
+Renew git to tje latest version
+git update-git-for-windows
+
+##########
+Ignore some file/s when commiting/pushing
+npm install touch-cli -g
+touch .gitignore
+Write in the body of the .gitignore names of the files you want to exclude from committing and pushing to GitHub
