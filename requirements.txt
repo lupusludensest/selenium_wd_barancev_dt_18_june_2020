@@ -28,7 +28,7 @@ ignore==0.1.4
 iniconfig==1.1.1
 more-itertools==8.7.0
 mysqlclient==2.0.3
-numpy==1.20.2
+numpy==1.22.0
 packaging==20.9
 parse==1.19.0
 parse-type==0.5.2
